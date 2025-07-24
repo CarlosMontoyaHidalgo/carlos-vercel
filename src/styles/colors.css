@@ -1,0 +1,101 @@
+/* ==========================================
+   COLOR SYSTEM & VARIABLES
+   ========================================== */
+
+:root {
+  /* Light mode colors - colores más suaves y agradables */
+  --background: #fafafa;
+  --foreground: #1a202c;
+  --primary: #2b6cb8;
+  --primary-foreground: #ffffff;
+  --secondary: #edf2f7;
+  --secondary-foreground: #2d3748;
+  --accent: #ff6b35;
+  --accent-foreground: #ffffff;
+  --muted: #f7fafc;
+  --muted-foreground: #718096;
+  --card: #ffffff;
+  --card-foreground: #2d3748;
+  --border: #e2e8f0;
+  --success: #38a169;
+  --warning: #ed8936;
+  --error: #e53e3e;
+  --gradient-from: #3182ce;
+  --gradient-to: #805ad5;
+  
+  /* Font families */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Dark mode - Auto detection */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1a1a;
+    --foreground: #ffffff;
+    --primary: #60a5fa;
+    --primary-foreground: #ffffff;
+    --secondary: #2d2d2d;
+    --secondary-foreground: #f9fafb;
+    --accent: #ff6b35;
+    --accent-foreground: #ffffff;
+    --muted: #2d2d2d;
+    --muted-foreground: #d1d5db;
+    --card: #1f1f1f;
+    --card-foreground: #f9fafb;
+    --border: #4b5563;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --gradient-from: #60a5fa;
+    --gradient-to: #a78bfa;
+  }
+}
+
+/* Dark mode - Manual theme switching */
+[data-theme="dark"] {
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --primary: #60a5fa;
+  --primary-foreground: #ffffff;
+  --secondary: #2d2d2d;
+  --secondary-foreground: #f9fafb;
+  --accent: #ff6b35;
+  --accent-foreground: #ffffff;
+  --muted: #2d2d2d;
+  --muted-foreground: #d1d5db;
+  --popover: #1f1f1f;
+  --popover-foreground: #fafafa;
+  --card: #1f1f1f;
+  --card-rgb: 31, 31, 31;
+  --card-foreground: #fafafa;
+  --border: #4b5563;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --gradient-from: #60a5fa;
+  --gradient-to: #a78bfa;
+}
+
+/* ==========================================
+   THEME UTILITIES
+   ========================================== */
+
+/* Background and text utilities */
+.bg-background { background-color: var(--background); }
+.bg-card { background-color: var(--card); }
+.bg-muted { background-color: var(--muted); }
+.bg-primary { background-color: var(--primary); }
+
+.text-foreground { color: var(--foreground); }
+.text-muted-foreground { color: var(--muted-foreground); }
+.text-primary { color: var(--primary); }
+.text-card-foreground { color: var(--card-foreground); }
+
+/* Border utilities */
+.border-border { border-color: var(--border); }
+.border-primary { border-color: var(--primary); }
+
+/* Hover utilities */
+.hover-primary:hover { color: var(--primary); }
+.hover-bg-muted:hover { background-color: var(--muted); }

@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Carlos Montoya Hidalgo
 
-## Getting Started
+Un portfolio personal moderno desarrollado con Next.js, TypeScript y Tailwind CSS.
 
-First, run the development server:
+## 🚀 Características
+
+- **Diseño moderno y responsivo**: Optimizado para todos los dispositivos
+- **Animaciones fluidas**: Implementadas con Framer Motion
+- **Tema oscuro/claro**: Soporte automático según preferencias del sistema
+- **Optimización SEO**: Configurado para motores de búsqueda
+- **Rendimiento optimizado**: Imágenes y recursos optimizados automáticamente
+
+## 🛠️ Tecnologías Utilizadas
+
+- [Next.js 15](https://nextjs.org/) - Framework de React
+- [TypeScript](https://www.typescriptlang.org/) - Tipado estático
+- [Tailwind CSS v4](https://tailwindcss.com/) - Framework CSS utility-first
+- [Framer Motion](https://www.framer.com/motion/) - Animaciones para React
+- [Lucide React](https://lucide.dev/) - Iconos modernos
+
+## 📦 Instalación
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/CarlosMontoyaHidalgo/carlos-vercel.git
+cd carlos-vercel
+```
+
+2. Instala las dependencias:
+
+```bash
+npm install
+```
+
+3. Ejecuta el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Scripts Disponibles
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Inicia el servidor de desarrollo con Turbopack
+- `npm run build` - Construye la aplicación para producción
+- `npm run start` - Inicia el servidor de producción
+- `npm run lint` - Ejecuta el linter
 
-## Learn More
+## 📁 Estructura del Proyecto
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── About.tsx
+│   ├── Contact.tsx
+│   ├── Hero.tsx
+│   ├── Navigation.tsx
+│   ├── Projects.tsx
+│   └── Technologies.tsx
+└── ...
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Despliegue
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+El sitio está optimizado para ser desplegado en [Vercel](https://vercel.com/):
 
-## Deploy on Vercel
+1. Conecta tu repositorio de GitHub con Vercel
+2. Configura las variables de entorno si es necesario
+3. ¡Despliega automáticamente!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Personalización
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para personalizar el portfolio con tu información:
+
+1. Actualiza la información personal en los componentes
+2. Reemplaza los proyectos en `src/components/Projects.tsx`
+3. Modifica las tecnologías en `src/components/Technologies.tsx`
+4. Actualiza los enlaces de contacto en `src/components/Contact.tsx`
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 👤 Autor
+
+**Carlos Montoya Hidalgo**
+
+- GitHub: [@CarlosMontoyaHidalgo](https://github.com/CarlosMontoyaHidalgo)
+- LinkedIn: [carlos-montoya-hidalgo](https://linkedin.com/in/carlos-montoya-hidalgo)

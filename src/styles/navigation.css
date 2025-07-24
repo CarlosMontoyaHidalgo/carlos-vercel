@@ -1,0 +1,125 @@
+/* ==========================================
+   NAVIGATION STYLES
+   ========================================== */
+
+/* Navigation Base */
+.navigation-base {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+/* Glass Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .glass-effect {
+  background: rgba(31, 31, 31, 0.8);
+  border-bottom: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+/* Navigation Items */
+.nav-item {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--muted-foreground);
+}
+
+.nav-item:hover {
+  color: var(--primary);
+  background-color: var(--muted);
+  transform: translateY(-1px);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  backdrop-filter: blur(20px);
+  border-radius: 0.75rem;
+  margin: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .mobile-nav {
+  background: rgba(31, 31, 31, 0.95);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.mobile-nav-item {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--muted-foreground);
+  text-align: left;
+  width: 100%;
+}
+
+.mobile-nav-item:hover {
+  color: var(--primary);
+  background-color: var(--muted);
+  transform: translateX(4px);
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  color: var(--foreground);
+  border-radius: 0.5rem;
+}
+
+.hamburger-btn:hover {
+  color: var(--primary);
+  background-color: var(--muted);
+}
+
+/* Sidebar Hamburger */
+.hamburger-sidebar {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 50;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  color: var(--foreground);
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hamburger-sidebar:hover {
+  background-color: var(--muted);
+  transform: scale(1.05);
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}

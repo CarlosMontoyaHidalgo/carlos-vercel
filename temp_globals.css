@@ -1,7 +1,77 @@
 @import "tailwindcss";
-@import "../styles/colors.css";
-@import "../styles/navigation.css";
-@import "../styles/components.css";
+
+:root {
+  /* Light mode colors */
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --border: #e2e8f0;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --gradient-from: #3b82f6;
+  --gradient-to: #8b5cf6;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark mode colors - más pronunciados */
+    --background: #0a0a0f;
+    --foreground: #f1f5f9;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --secondary: #111827;
+    --secondary-foreground: #f9fafb;
+    --accent: #8b5cf6;
+    --accent-foreground: #ffffff;
+    --muted: #111827;
+    --muted-foreground: #9ca3af;
+    --card: #111827;
+    --card-foreground: #f9fafb;
+    --border: #374151;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --gradient-from: #3b82f6;
+    --gradient-to: #8b5cf6;
+  }
+}
+
+[data-theme="dark"] {
+  /* Dark mode colors for manual theme switching - más pronunciados */
+  --background: #0a0a0f;
+  --foreground: #f1f5f9;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #111827;
+  --secondary-foreground: #f9fafb;
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --popover: #09090b;
+  --popover-foreground: #fafafa;
+  --card: #09090b;
+  --card-rgb: 9, 9, 11;
+  --card-foreground: #fafafa;
+  --border: #374151;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --gradient-from: #3b82f6;
+  --gradient-to: #8b5cf6;
+}
 
 body {
   background: var(--background);
