@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import ThemeToggle, { MobileThemeToggle } from './ThemeToggle'
+import ThemeToggle, { MobileThemeToggle } from './ui/ThemeToggle'
 import NavigationSettings from './NavigationSettings'
 import { useNavigation as useNavigationContext } from './NavigationProvider'
 import { useNavigation as useNavigationData, usePersonalInfo } from '@/hooks/usePortfolioData'
@@ -36,14 +36,25 @@ export default function Navigation() {
       <>
         <Sidebar />
         
-        {/* Botón hamburguesa para mobile cuando es sidebar */}
+        {/* Botón hamburguesa simple */}
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="lg:hidden fixed top-4 left-4 z-50 p-3 rounded-lg glass-effect hamburger-sidebar"
-          style={{ 
-            color: 'var(--foreground)',
-            backgroundColor: 'var(--card)',
-            border: '1px solid var(--border)'
+          style={{
+            position: 'fixed',
+            top: '20px',
+            left: '20px',
+            zIndex: 1000,
+            width: '50px',
+            height: '50px',
+            backgroundColor: '#3b82f6',
+            color: '#ffffff',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
           {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}

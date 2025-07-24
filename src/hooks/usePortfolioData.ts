@@ -1,4 +1,5 @@
 import portfolioData from '@/data/portfolio.json'
+import experienceData from '@/data/experience.json'
 
 // Tipos TypeScript para mejor desarrollo
 export interface PersonalInfo {
@@ -38,11 +39,11 @@ export interface AboutData {
     years: string
     description: string
   }
+  philosophy: string
 }
 
 export interface Skill {
   name: string
-  level: number
   icon: string
 }
 
@@ -115,11 +116,10 @@ export interface Education {
   location: string
   startDate: string
   endDate: string
-  gpa?: string
-  honors?: string[]
   relevantCourses?: string[]
   certificateId?: string
   skills?: string[]
+  featured?: boolean
 }
 
 export interface Certification {
@@ -173,8 +173,16 @@ export const useAboutData = (): AboutData => {
 }
 
 export const useExperienceData = (): ExperienceData => {
-  return portfolioData.experience as ExperienceData
+  return experienceData.experience as ExperienceData
 }
+
+export const useEducationData = () => {
+  return experienceData.education
+}
+
+/*export const useCertificationsData = () => {
+  return experienceData.certifications || { title: '', subtitle: '', items: [] }
+}*/
 
 export const useTechnologiesData = (): TechnologiesData => {
   return portfolioData.technologies as TechnologiesData
@@ -210,27 +218,27 @@ export const getTechnologiesByCategory = (category: string): Skill[] => {
 
 // Funciones helper para experiencia
 export const getFeaturedExperience = (): WorkExperience[] => {
-  return portfolioData.experience.items.filter(exp => exp.featured)
+  return experienceData.experience.items.filter(exp => exp.featured)
 }
 
 export const getAllExperience = (): WorkExperience[] => {
-  return portfolioData.experience.items
+  return experienceData.experience.items
 }
 
 export const getExperienceById = (id: number): WorkExperience | undefined => {
-  return portfolioData.experience.items.find(exp => exp.id === id)
+  return experienceData.experience.items.find(exp => exp.id === id)
 }
 
 export const getEducation = (): Education[] => {
-  return portfolioData.experience.education
+  return experienceData.education.items
 }
 
-export const getCertifications = (): Certification[] => {
-  return portfolioData.experience.certifications
-}
+/*export const getCertifications = (): Certification[] => {
+  return experienceData.certifications.items
+}*/
 
 export const getRecentExperience = (limit: number = 3): WorkExperience[] => {
-  return portfolioData.experience.items
+  return experienceData.experience.items
     .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
     .slice(0, limit)
 }

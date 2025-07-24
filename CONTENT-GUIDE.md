@@ -90,10 +90,7 @@ Modifica el objeto `experience`:
         "endDate": "Actualidad", // o fecha específica
         "duration": "2 años",
         "description": "Descripción del puesto...",
-        "achievements": [
-          "Logro específico 1",
-          "Logro específico 2"
-        ],
+        "achievements": ["Logro específico 1", "Logro específico 2"],
         "technologies": ["React", "Node.js", "AWS"],
         "featured": true // para destacar posiciones importantes
       }
@@ -223,9 +220,11 @@ Edita `src/data/config.json` para cambiar:
 ## 🚀 Cómo Añadir Nuevo Contenido
 
 ### ✅ Añadir una Nueva Experiencia Laboral
+
 1. Abre `src/data/portfolio.json`
 2. Ve al array `experience.items`
 3. Añade un nuevo objeto con la estructura:
+
 ```json
 {
   "id": 5, // Número único
@@ -247,8 +246,10 @@ Edita `src/data/config.json` para cambiar:
 ```
 
 ### ✅ Añadir una Nueva Certificación
+
 1. Ve a `experience.certifications`
 2. Añade:
+
 ```json
 {
   "name": "Nombre de la Certificación",
@@ -261,8 +262,10 @@ Edita `src/data/config.json` para cambiar:
 ```
 
 ### ✅ Añadir Educación
+
 1. Ve a `experience.education`
 2. Añade:
+
 ```json
 {
   "id": 3,

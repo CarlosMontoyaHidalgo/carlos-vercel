@@ -41,7 +41,8 @@ export default function NavigationSettings() {
       id: 'sidebar' as const,
       icon: <Menu size={18} />,
       title: 'Sidebar',
-      description: 'Barra lateral'
+      description: 'Barra lateral (Próximamente)',
+      disabled: true
     }
   ]
 
@@ -150,15 +151,20 @@ export default function NavigationSettings() {
                     <button
                       key={option.id}
                       onClick={() => {
-                        setNavigationType(option.id)
+                        if (!option.disabled) {
+                          setNavigationType(option.id)
+                        }
                       }}
+                      disabled={option.disabled}
                       className={`w-full flex items-center gap-3 p-3 rounded-lg transition-all duration-200 ${
                         navigationType === option.id
                           ? 'bg-blue-500/20 border-blue-500/50' 
+                          : option.disabled
+                          ? 'opacity-50 cursor-not-allowed bg-gray-50 dark:bg-gray-900'
                           : 'hover:bg-gray-100 dark:hover:bg-gray-800'
                       }`}
                       style={{ 
-                        color: navigationType === option.id ? 'var(--primary)' : 'var(--foreground)',
+                        color: navigationType === option.id ? 'var(--primary)' : option.disabled ? 'var(--muted-foreground)' : 'var(--foreground)',
                         border: navigationType === option.id ? '1px solid var(--primary)' : '1px solid var(--border)'
                       }}
                     >

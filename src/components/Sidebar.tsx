@@ -2,19 +2,12 @@
 
 import { X } from 'lucide-react'
 import { useNavigation } from './NavigationProvider'
-import ThemeToggle from './ThemeToggle'
-import NavigationSettings from './NavigationSettings'
+import { useNavigation as useNavigationData, usePersonalInfo } from '@/hooks/usePortfolioData'
 
 export default function Sidebar() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigation()
-
-  const navItems = [
-    { name: 'Inicio', href: '#hero' },
-    { name: 'Sobre mí', href: '#about' },
-    { name: 'Tecnologías', href: '#technologies' },
-    { name: 'Proyectos', href: '#projects' },
-    { name: 'Contacto', href: '#contact' },
-  ]
+  const navItems = useNavigationData()
+  const personalInfo = usePersonalInfo()
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
@@ -24,88 +17,123 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Overlay */}
+      {/* Overlay oscuro */}
       {isSidebarOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 sidebar-overlay z-40 lg:hidden"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 998
+          }}
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       {/* Sidebar */}
-      <aside className={`
-        fixed top-0 left-0 h-full w-64 z-50 transform transition-transform duration-300 ease-in-out
-        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
-        lg:translate-x-0
-      `}
-      style={{ 
-        backgroundColor: 'var(--card)',
-        borderRight: '1px solid var(--border)'
-      }}
+      <div 
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          height: '100vh',
+          width: '280px',
+          backgroundColor: '#ffffff',
+          borderRight: '2px solid #e5e7eb',
+          zIndex: 999,
+          transform: isSidebarOpen ? 'translateX(0)' : 'translateX(-100%)',
+          transition: 'transform 0.3s ease',
+          boxShadow: '2px 0 10px rgba(0,0,0,0.1)',
+          display: 'flex',
+          flexDirection: 'column'
+        }}
       >
-        <div className="flex flex-col h-full">
-          {/* Header del sidebar */}
-          <div className="flex items-center justify-between p-6 border-b" style={{ borderColor: 'var(--border)' }}>
-            <div className="text-2xl font-bold text-gradient">
-              Carlos
-            </div>
-            <button
-              onClick={() => setIsSidebarOpen(false)}
-              className="lg:hidden p-2 rounded-lg transition-colors"
-              style={{ color: 'var(--foreground)' }}
-            >
-              <X size={20} />
-            </button>
-          </div>
-
-          {/* Navegación */}
-          <nav className="flex-1 px-4 py-6">
-            <ul className="space-y-2">
-              {navItems.map((item) => (
-                <li key={item.name}>
-                  <button
-                    onClick={() => scrollToSection(item.href)}
-                    className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 font-medium hover:scale-105"
-                    style={{ 
-                      color: 'var(--foreground)',
-                      opacity: 0.8
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--muted)'
-                      e.currentTarget.style.color = 'var(--primary)'
-                      e.currentTarget.style.opacity = '1'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent'
-                      e.currentTarget.style.color = 'var(--foreground)'
-                      e.currentTarget.style.opacity = '0.8'
-                    }}
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Footer con controles */}
-          <div className="p-4 border-t space-y-4" style={{ borderColor: 'var(--border)' }}>
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium" style={{ color: 'var(--muted-foreground)' }}>
-                Tema
-              </span>
-              <ThemeToggle />
-            </div>
-            
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium" style={{ color: 'var(--muted-foreground)' }}>
-                Navegación
-              </span>
-              <NavigationSettings />
-            </div>
-          </div>
+        {/* Header */}
+        <div style={{
+          padding: '20px',
+          borderBottom: '1px solid #e5e7eb',
+          backgroundColor: '#f8fafc'
+        }}>
+          <h2 style={{
+            margin: 0,
+            fontSize: '24px',
+            fontWeight: 'bold',
+            color: '#1e40af'
+          }}>
+            {personalInfo?.name || 'Carlos'}
+          </h2>
+          <button
+            onClick={() => setIsSidebarOpen(false)}
+            style={{
+              position: 'absolute',
+              top: '15px',
+              right: '15px',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              color: '#64748b'
+            }}
+          >
+            <X size={24} />
+          </button>
         </div>
-      </aside>
+
+        {/* Navigation */}
+        <div style={{ flex: 1, padding: '20px' }}>
+          {navItems?.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => scrollToSection(item.href)}
+              style={{
+                display: 'block',
+                width: '100%',
+                padding: '12px 16px',
+                marginBottom: '8px',
+                backgroundColor: '#f1f5f9',
+                border: '1px solid #e2e8f0',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: '500',
+                color: '#334155',
+                textAlign: 'left',
+                transition: 'all 0.2s'
+              }}
+              onMouseOver={(e) => {
+                const target = e.target as HTMLElement
+                target.style.backgroundColor = '#3b82f6'
+                target.style.color = '#ffffff'
+              }}
+              onMouseOut={(e) => {
+                const target = e.target as HTMLElement
+                target.style.backgroundColor = '#f1f5f9'
+                target.style.color = '#334155'
+              }}
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <div style={{
+          padding: '20px',
+          borderTop: '1px solid #e5e7eb',
+          backgroundColor: '#f8fafc'
+        }}>
+          <p style={{
+            margin: 0,
+            fontSize: '14px',
+            color: '#64748b',
+            textAlign: 'center'
+          }}>
+            Portfolio - {new Date().getFullYear()}
+          </p>
+        </div>
+      </div>
     </>
   )
 }

@@ -6,6 +6,7 @@ import Projects from '@/components/sections/Projects'
 import Contact from '@/components/sections/Contact'
 import PageLoader from '@/components/ui/PageLoader'
 import ContentWrapper from '@/components/layout/ContentWrapper'
+import ScrollToTop from '@/components/ui/ScrollToTop'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
           <Projects />
           <Contact />
         </main>
+        <ScrollToTop />
       </ContentWrapper>
     </PageLoader>
   )

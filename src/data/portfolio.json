@@ -6,7 +6,7 @@
     "description": "Apasionado por crear experiencias digitales increíbles utilizando las últimas tecnologías web, móvil y de investigación.",
     "email": "carlosmh561@gmail.com",
     "github": "https://github.com/CarlosMontoyaHidalgo",
-    "linkedin": "https://linkedin.com/in/carlos-montoya-hidalgo",
+    "linkedin": "https://www.linkedin.com/in/carlos-alberto-montoya-hidalgo-258a57313/",
     "location": "España"
   },
   "navigation": [
@@ -48,144 +48,8 @@
     "experience": {
       "years": "3+",
       "description": "años de experiencia en desarrollo"
-    }
-  },
-  "experience": {
-    "title": "Experiencia Laboral",
-    "subtitle": "Mi trayectoria profesional",
-    "items": [
-      {
-        "id": 1,
-        "position": "Desarrollador Full Stack Senior",
-        "company": "Tech Solutions S.L.",
-        "location": "Madrid, España",
-        "type": "Tiempo completo",
-        "startDate": "2022-03",
-        "endDate": "Actualidad",
-        "duration": "2 años",
-        "description": "Desarrollo y mantenimiento de aplicaciones web escalables utilizando React, Node.js y AWS. Liderazgo de equipo de 3 desarrolladores junior.",
-        "achievements": [
-          "Mejoré el rendimiento de la aplicación principal en un 40%",
-          "Implementé sistema de CI/CD que redujo los tiempos de deploy en 60%",
-          "Desarrollé arquitectura de microservicios que mejoró la escalabilidad",
-          "Mentoricé a 5+ desarrolladores junior en mejores prácticas"
-        ],
-        "technologies": ["React", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL"],
-        "featured": true
-      },
-      {
-        "id": 2,
-        "position": "Desarrollador Frontend",
-        "company": "Digital Agency",
-        "location": "Barcelona, España",
-        "type": "Tiempo completo",
-        "startDate": "2021-01",
-        "endDate": "2022-02",
-        "duration": "1 año 2 meses",
-        "description": "Desarrollo de interfaces de usuario responsive y accesibles para múltiples clientes. Colaboración estrecha con diseñadores UX/UI.",
-        "achievements": [
-          "Desarrollé +15 sitios web responsive para diversos clientes",
-          "Implementé sistema de design tokens que mejoró la consistencia",
-          "Reduje el tiempo de carga promedio de sitios en 35%",
-          "Obtuve puntuación promedio de 95+ en Google Lighthouse"
-        ],
-        "technologies": ["React", "Vue.js", "Tailwind CSS", "JavaScript", "Figma"],
-        "featured": true
-      },
-      {
-        "id": 3,
-        "position": "Desarrollador Junior",
-        "company": "StartupTech",
-        "location": "Valencia, España",
-        "type": "Tiempo completo",
-        "startDate": "2020-06",
-        "endDate": "2020-12",
-        "duration": "7 meses",
-        "description": "Primer rol profesional desarrollando features para una plataforma SaaS. Aprendizaje acelerado en un entorno ágil.",
-        "achievements": [
-          "Desarrollé módulo de reportes que incrementó retención en 25%",
-          "Contribuí a la migración de JavaScript a TypeScript",
-          "Implementé tests unitarios aumentando cobertura al 80%",
-          "Participé en code reviews y mejora de procesos"
-        ],
-        "technologies": ["JavaScript", "React", "Express.js", "MongoDB"],
-        "featured": false
-      },
-      {
-        "id": 4,
-        "position": "Desarrollador Freelance",
-        "company": "Proyectos Independientes",
-        "location": "Remoto",
-        "type": "Freelance",
-        "startDate": "2019-09",
-        "endDate": "2020-05",
-        "duration": "9 meses",
-        "description": "Desarrollo de sitios web y aplicaciones pequeñas para clientes locales mientras completaba mis estudios.",
-        "achievements": [
-          "Completé +10 proyectos web para pequeñas empresas",
-          "Desarrollé tienda online que incrementó ventas cliente en 150%",
-          "Creé landing pages con tasa conversión promedio del 8%",
-          "Establecí relaciones duraderas con 5+ clientes recurrentes"
-        ],
-        "technologies": ["HTML", "CSS", "JavaScript", "WordPress", "PHP"],
-        "featured": false
-      }
-    ],
-    "education": [
-      {
-        "id": 1,
-        "degree": "Grado en Ingeniería Informática",
-        "institution": "Universidad Politécnica de Valencia",
-        "location": "Valencia, España",
-        "startDate": "2016-09",
-        "endDate": "2020-06",
-        "gpa": "8.5/10",
-        "honors": ["Matrícula de Honor en Desarrollo Web", "Premio al Mejor Proyecto Final"],
-        "relevantCourses": [
-          "Ingeniería del Software",
-          "Bases de Datos",
-          "Programación Web",
-          "Sistemas Distribuidos",
-          "Inteligencia Artificial"
-        ]
-      },
-      {
-        "id": 2,
-        "degree": "Certificación AWS Solutions Architect",
-        "institution": "Amazon Web Services",
-        "location": "Online",
-        "startDate": "2022-01",
-        "endDate": "2022-03",
-        "certificateId": "AWS-SA-2022-001234",
-        "skills": ["AWS", "Cloud Architecture", "Scalability", "Security"]
-      }
-    ],
-    "certifications": [
-      {
-        "name": "AWS Certified Solutions Architect - Associate",
-        "issuer": "Amazon Web Services",
-        "date": "2022-03",
-        "credentialId": "AWS-SA-2022-001234",
-        "url": "https://aws.amazon.com/certification/",
-        "skills": ["AWS", "Cloud Computing", "Architecture"]
-      },
-      {
-        "name": "React Developer Certification",
-        "issuer": "Meta",
-        "date": "2021-11",
-        "credentialId": "META-REACT-2021-5678",
-        "url": "https://developers.facebook.com/certification/",
-        "skills": ["React", "JavaScript", "Frontend Development"]
-      },
-      {
-        "name": "Google Analytics Certified",
-        "issuer": "Google",
-        "date": "2021-08",
-        "credentialId": "GOOGLE-GA-2021-9012",
-        "url": "https://skillshop.exceedlms.com/",
-        "skills": ["Analytics", "Data Analysis", "Digital Marketing"]
-      }
-    ]
+    },
+    "philosophy": "Aunque mi especialización principal es el desarrollo web y móvil, siempre estoy abierto a aprender nuevas tecnologías y habilidades que la empresa necesite. Mi enfoque es adaptarme y crecer profesionalmente según los desafíos que se presenten."
   },
   "technologies": {
     "title": "Tecnologías",
@@ -195,33 +59,33 @@
         "name": "Frontend",
         "icon": "🎨",
         "skills": [
-          { "name": "React", "level": 90, "icon": "⚛️" },
-          { "name": "Next.js", "level": 85, "icon": "▲" },
-          { "name": "TypeScript", "level": 80, "icon": "🔷" },
-          { "name": "Tailwind CSS", "level": 90, "icon": "🎨" },
-          { "name": "JavaScript", "level": 95, "icon": "📜" }
+          { "name": "React", "icon": "⚛️" },
+          { "name": "Next.js", "icon": "▲" },
+          { "name": "TypeScript", "icon": "🔷" },
+          { "name": "Tailwind CSS", "icon": "🎨" },
+          { "name": "JavaScript", "icon": "📜" }
         ]
       },
       {
         "name": "Backend",
         "icon": "⚙️",
         "skills": [
-          { "name": "Node.js", "level": 85, "icon": "🟢" },
-          { "name": "Python", "level": 80, "icon": "🐍" },
-          { "name": "PostgreSQL", "level": 75, "icon": "🐘" },
-          { "name": "MongoDB", "level": 70, "icon": "🍃" },
-          { "name": "Express.js", "level": 85, "icon": "🚀" }
+          { "name": "Node.js", "icon": "🟢" },
+          { "name": "Python", "icon": "🐍" },
+          { "name": "PostgreSQL", "icon": "🐘" },
+          { "name": "MongoDB", "icon": "🍃" },
+          { "name": "Express.js", "icon": "🚀" }
         ]
       },
       {
         "name": "DevOps & Tools",
         "icon": "🔧",
         "skills": [
-          { "name": "Git", "level": 90, "icon": "📝" },
-          { "name": "Docker", "level": 75, "icon": "🐳" },
-          { "name": "AWS", "level": 70, "icon": "☁️" },
-          { "name": "Vercel", "level": 85, "icon": "▲" },
-          { "name": "VS Code", "level": 95, "icon": "💙" }
+          { "name": "Git", "icon": "📝" },
+          { "name": "Docker", "icon": "🐳" },
+          { "name": "AWS", "icon": "☁️" },
+          { "name": "Vercel", "icon": "▲" },
+          { "name": "VS Code", "icon": "💙" }
         ]
       }
     ]
@@ -276,8 +140,8 @@
     "title": "Contacto",
     "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
     "description": "Estoy siempre abierto a nuevas oportunidades y colaboraciones. No dudes en contactarme si tienes alguna pregunta o propuesta.",
-    "email": "carlos@example.com",
-    "phone": "+34 123 456 789",
+    "email": "carlosmh561@gmail.com",
+    "phone": "",
     "location": "España",
     "availability": "Disponible para proyectos freelance",
     "responseTime": "Respondo en menos de 24 horas",
@@ -289,12 +153,12 @@
       },
       {
         "name": "LinkedIn",
-        "url": "https://linkedin.com/in/carlos-montoya-hidalgo",
+        "url": "https://www.linkedin.com/in/carlos-alberto-montoya-hidalgo-258a57313/",
         "icon": "linkedin"
       },
       {
         "name": "Email",
-        "url": "mailto:carlos@example.com",
+        "url": "mailto:carlosmh561@gmail.com",
         "icon": "mail"
       }
     ]

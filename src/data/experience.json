@@ -1,0 +1,104 @@
+{
+  "experience": {
+    "title": "Experiencia Laboral",
+    "subtitle": "Mi trayectoria profesional",
+    "items": [
+      {
+        "id": 1,
+        "position": "Desarrollador Web",
+        "company": "2Coders S.L.",
+        "location": "Las Palmas de Gran Canaria, España",
+        "type": "Prácticas Externas",
+        "startDate": "2024-11",
+        "endDate": "2025-02",
+        "duration": "3 meses",
+        "description": "Desarrollo y mantenimiento de la aplicación web Velvet utilizando React, Next.js y SCSS.",
+        "achievements": [
+            "Implementé nuevas funcionalidades que mejoraron la experiencia del usuario",
+            "Colaboré en la optimización del rendimiento de la aplicación",
+            "Participé en el diseño y desarrollo de componentes reutilizables",
+            "Trabajo en equipo con diseñadores y desarrolladores"
+        ],
+        "technologies": ["React", "TypeScript", "Next.js", "SCSS"],
+        "featured": true
+      },
+      {
+  "id": 2,
+  "position": "Desarrollador Web y E-commerce Freelance",
+  "company": "Trabajo Autónomo/Proyectos Freelance",
+  "location": "Online",
+  "type": "Freelance",
+  "startDate": "2024-12",
+  "endDate": "2025-02",
+  "duration": "3 meses",
+  "description": "Desarrollo de soluciones de e-commerce personalizadas para clientes independientes y pequeños negocios.",
+  "achievements": [
+    "Creación de tiendas online personalizadas con Shopify",
+    "Entrega de proyectos llave en mano listos para su uso inmediato",
+    "Desarrollo y venta de plantillas y soluciones pre-configuradas para emprendedores"
+  ],
+  "technologies": ["Shopify"],
+  "featured": false
+}
+    ]
+  },
+  "education": {
+    "title": "Educación",
+    "subtitle": "Mi formación académica",
+    "items": [
+      {
+        "id": 1,
+        "degree": "Grado en Ingeniería Informática",
+        "institution": "Universidad de Las Palmas de Gran Canaria",
+        "location": "Las Palmas de Gran Canaria, España",
+        "startDate": "2024-11",
+        "endDate": "2025-02",
+        "relevantCourses": [
+          "Ingeniería del Software",
+          "Bases de Datos",
+          "Programación Web",
+          "Sistemas Distribuidos",
+          "Inteligencia Artificial"
+        ],
+        "featured": true
+      },
+      {
+        "id": 2,
+        "degree": "Tutoriales de React y Next.js",
+        "institution": "MiduDev",
+        "location": "Online",
+        "startDate": "2024-01",
+        "endDate": "2024-12",
+        "relevantCourses": [
+          "React desde cero",
+          "Next.js 14 y App Router",
+          "TypeScript con React",
+          "Hooks avanzados",
+          "Optimización y performance",
+          "Server Components"
+        ],
+        "skills": ["React", "Next.js", "TypeScript", "JavaScript"],
+        "featured": false
+      },
+      {
+        "id": 3,
+        "degree": "Cursos de Android",
+        "institution": "AristiDev",
+        "location": "Online",
+        "startDate": "2023-06",
+        "endDate": "2024-06",
+        "relevantCourses": [
+          "Kotlin desde cero",
+          "Android Studio y Gradle",
+          "Jetpack Compose",
+          "MVVM Architecture",
+          "Room Database",
+          "Retrofit y APIs",
+          "Material Design"
+        ],
+        "skills": ["Kotlin", "Android", "Jetpack Compose", "Room", "Retrofit"],
+        "featured": false
+      }
+    ]
+  }
+}

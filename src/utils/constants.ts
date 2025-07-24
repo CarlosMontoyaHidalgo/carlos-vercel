@@ -8,12 +8,13 @@ export const NAVIGATION_ITEMS = [
   { name: 'Tecnologías', href: '#technologies' },
   { name: 'Proyectos', href: '#projects' },
   { name: 'Contacto', href: '#contact' },
+  { name: 'Experiencia', href: '#experience'}
 ] as const
 
 export const SOCIAL_LINKS = {
   github: 'https://github.com/CarlosMontoyaHidalgo',
-  linkedin: 'https://linkedin.com/in/carlos-montoya-hidalgo',
-  email: 'carlos@example.com',
+  linkedin: 'https://www.linkedin.com/in/carlos-alberto-montoya-hidalgo-258a57313/',
+  email: 'carlosmh561@gmail.com',
 } as const
 
 export const ANIMATION_DURATIONS = {

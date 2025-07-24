@@ -21,21 +21,15 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [designTheme, setDesignTheme] = useState<DesignTheme>('modern')
 
-  // Guardar preferencias en localStorage
+  // Forzar siempre modo header inicialmente
   useEffect(() => {
-    const savedType = localStorage.getItem('navigation-type') as NavigationType
-    const savedDesignTheme = localStorage.getItem('design-theme') as DesignTheme
-    
-    if (savedType && (savedType === 'header' || savedType === 'sidebar')) {
-      setNavigationType(savedType)
-    }
-    if (savedDesignTheme && ['modern', 'classic', 'minimal', 'creative'].includes(savedDesignTheme)) {
-      setDesignTheme(savedDesignTheme)
-    }
+    setNavigationType('header')
+    localStorage.setItem('navigation-type', 'header')
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('navigation-type', navigationType)
+    // Siempre mantener header
+    localStorage.setItem('navigation-type', 'header')
   }, [navigationType])
 
   useEffect(() => {
