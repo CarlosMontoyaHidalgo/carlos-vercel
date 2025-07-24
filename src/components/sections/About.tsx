@@ -1,6 +1,6 @@
 'use client'
 
-import { Code, Database, Globe, Smartphone, GraduationCap, Apple } from 'lucide-react'
+import { Code, Database, Globe, Smartphone, GraduationCap, Apple, Zap } from 'lucide-react'
 import AboutHeader from './about/AboutHeader'
 import AboutStory from './about/AboutStory'
 import ExperienceCounter from './about/ExperienceCounter'
@@ -16,12 +16,12 @@ export default function About() {
     {
       icon: <Database className="w-8 h-8" />,
       title: 'Backend Development',
-      description: 'Node.js, Express, MongoDB, PostgreSQL'
+      description: 'Node.js, Express, Node.js, PostgreSQL, Firebase, Supabase'
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
       title: 'Android Development',
-      description: 'Kotlin, Java, Android Studio, Material Design'
+      description: 'Kotlin, Java, Android Studio, Material Design, Jetpack Compose'
     },
     {
       icon: <Apple className="w-8 h-8" />,
@@ -32,12 +32,18 @@ export default function About() {
     {
       icon: <Code className="w-8 h-8" />,
       title: 'DevOps & Tools',
-      description: 'Git, Docker, AWS, Vercel'
+      description: 'Git, Vercel'
     },
     {
       icon: <GraduationCap className="w-8 h-8" />,
       title: 'Investigación',
-      description: 'TFG en desarrollo, Machine Learning',
+      description: 'TFG Aprobado - App Android con IA',
+      learning: false
+    },
+    {
+      icon: <Zap className="w-8 h-8" />,
+      title: 'Automatización',
+      description: 'Make, n8n, Workflows',
       learning: true
     }
   ]
