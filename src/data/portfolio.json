@@ -1,0 +1,302 @@
+{
+  "personal": {
+    "name": "Carlos",
+    "fullName": "Carlos Montoya Hidalgo",
+    "title": "Graduado en Ingeniería Informática",
+    "description": "Apasionado por crear experiencias digitales increíbles utilizando las últimas tecnologías web, móvil y de investigación.",
+    "email": "carlosmh561@gmail.com",
+    "github": "https://github.com/CarlosMontoyaHidalgo",
+    "linkedin": "https://linkedin.com/in/carlos-montoya-hidalgo",
+    "location": "España"
+  },
+  "navigation": [
+    { "name": "Inicio", "href": "#hero" },
+    { "name": "Sobre mí", "href": "#about" },
+    { "name": "Experiencia", "href": "#experience" },
+    { "name": "Tecnologías", "href": "#technologies" },
+    { "name": "Proyectos", "href": "#projects" },
+    { "name": "Contacto", "href": "#contact" }
+  ],
+  "hero": {
+    "greeting": "¡Hola! Soy",
+    "typingText": "Desarrollador Móvil y Web",
+    "description": "Apasionado por crear experiencias digitales increíbles utilizando las últimas tecnologías web, móvil y de investigación.",
+    "ctaButtons": [
+      {
+        "text": "Ver Proyectos",
+        "href": "#projects",
+        "type": "primary"
+      },
+      {
+        "text": "Contactar",
+        "href": "#contact",
+        "type": "secondary"
+      }
+    ]
+  },
+  "about": {
+    "title": "Sobre mí",
+    "description": "Soy un desarrollador Full Stack con pasión por crear soluciones tecnológicas innovadoras. Me especializo en desarrollo web moderno utilizando las últimas tecnologías y mejores prácticas.",
+    "highlights": [
+      "🚀 Desarrollo web moderno con React y Next.js",
+      "💻 Backend robusto con Node.js y bases de datos",
+      "📱 Aplicaciones móviles multiplataforma",
+      "🎨 Diseño UI/UX centrado en el usuario",
+      "⚡ Optimización de rendimiento y SEO",
+      "🔧 DevOps y despliegue en la nube"
+    ],
+    "experience": {
+      "years": "3+",
+      "description": "años de experiencia en desarrollo"
+    }
+  },
+  "experience": {
+    "title": "Experiencia Laboral",
+    "subtitle": "Mi trayectoria profesional",
+    "items": [
+      {
+        "id": 1,
+        "position": "Desarrollador Full Stack Senior",
+        "company": "Tech Solutions S.L.",
+        "location": "Madrid, España",
+        "type": "Tiempo completo",
+        "startDate": "2022-03",
+        "endDate": "Actualidad",
+        "duration": "2 años",
+        "description": "Desarrollo y mantenimiento de aplicaciones web escalables utilizando React, Node.js y AWS. Liderazgo de equipo de 3 desarrolladores junior.",
+        "achievements": [
+          "Mejoré el rendimiento de la aplicación principal en un 40%",
+          "Implementé sistema de CI/CD que redujo los tiempos de deploy en 60%",
+          "Desarrollé arquitectura de microservicios que mejoró la escalabilidad",
+          "Mentoricé a 5+ desarrolladores junior en mejores prácticas"
+        ],
+        "technologies": ["React", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL"],
+        "featured": true
+      },
+      {
+        "id": 2,
+        "position": "Desarrollador Frontend",
+        "company": "Digital Agency",
+        "location": "Barcelona, España",
+        "type": "Tiempo completo",
+        "startDate": "2021-01",
+        "endDate": "2022-02",
+        "duration": "1 año 2 meses",
+        "description": "Desarrollo de interfaces de usuario responsive y accesibles para múltiples clientes. Colaboración estrecha con diseñadores UX/UI.",
+        "achievements": [
+          "Desarrollé +15 sitios web responsive para diversos clientes",
+          "Implementé sistema de design tokens que mejoró la consistencia",
+          "Reduje el tiempo de carga promedio de sitios en 35%",
+          "Obtuve puntuación promedio de 95+ en Google Lighthouse"
+        ],
+        "technologies": ["React", "Vue.js", "Tailwind CSS", "JavaScript", "Figma"],
+        "featured": true
+      },
+      {
+        "id": 3,
+        "position": "Desarrollador Junior",
+        "company": "StartupTech",
+        "location": "Valencia, España",
+        "type": "Tiempo completo",
+        "startDate": "2020-06",
+        "endDate": "2020-12",
+        "duration": "7 meses",
+        "description": "Primer rol profesional desarrollando features para una plataforma SaaS. Aprendizaje acelerado en un entorno ágil.",
+        "achievements": [
+          "Desarrollé módulo de reportes que incrementó retención en 25%",
+          "Contribuí a la migración de JavaScript a TypeScript",
+          "Implementé tests unitarios aumentando cobertura al 80%",
+          "Participé en code reviews y mejora de procesos"
+        ],
+        "technologies": ["JavaScript", "React", "Express.js", "MongoDB"],
+        "featured": false
+      },
+      {
+        "id": 4,
+        "position": "Desarrollador Freelance",
+        "company": "Proyectos Independientes",
+        "location": "Remoto",
+        "type": "Freelance",
+        "startDate": "2019-09",
+        "endDate": "2020-05",
+        "duration": "9 meses",
+        "description": "Desarrollo de sitios web y aplicaciones pequeñas para clientes locales mientras completaba mis estudios.",
+        "achievements": [
+          "Completé +10 proyectos web para pequeñas empresas",
+          "Desarrollé tienda online que incrementó ventas cliente en 150%",
+          "Creé landing pages con tasa conversión promedio del 8%",
+          "Establecí relaciones duraderas con 5+ clientes recurrentes"
+        ],
+        "technologies": ["HTML", "CSS", "JavaScript", "WordPress", "PHP"],
+        "featured": false
+      }
+    ],
+    "education": [
+      {
+        "id": 1,
+        "degree": "Grado en Ingeniería Informática",
+        "institution": "Universidad Politécnica de Valencia",
+        "location": "Valencia, España",
+        "startDate": "2016-09",
+        "endDate": "2020-06",
+        "gpa": "8.5/10",
+        "honors": ["Matrícula de Honor en Desarrollo Web", "Premio al Mejor Proyecto Final"],
+        "relevantCourses": [
+          "Ingeniería del Software",
+          "Bases de Datos",
+          "Programación Web",
+          "Sistemas Distribuidos",
+          "Inteligencia Artificial"
+        ]
+      },
+      {
+        "id": 2,
+        "degree": "Certificación AWS Solutions Architect",
+        "institution": "Amazon Web Services",
+        "location": "Online",
+        "startDate": "2022-01",
+        "endDate": "2022-03",
+        "certificateId": "AWS-SA-2022-001234",
+        "skills": ["AWS", "Cloud Architecture", "Scalability", "Security"]
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AWS Certified Solutions Architect - Associate",
+        "issuer": "Amazon Web Services",
+        "date": "2022-03",
+        "credentialId": "AWS-SA-2022-001234",
+        "url": "https://aws.amazon.com/certification/",
+        "skills": ["AWS", "Cloud Computing", "Architecture"]
+      },
+      {
+        "name": "React Developer Certification",
+        "issuer": "Meta",
+        "date": "2021-11",
+        "credentialId": "META-REACT-2021-5678",
+        "url": "https://developers.facebook.com/certification/",
+        "skills": ["React", "JavaScript", "Frontend Development"]
+      },
+      {
+        "name": "Google Analytics Certified",
+        "issuer": "Google",
+        "date": "2021-08",
+        "credentialId": "GOOGLE-GA-2021-9012",
+        "url": "https://skillshop.exceedlms.com/",
+        "skills": ["Analytics", "Data Analysis", "Digital Marketing"]
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Tecnologías",
+    "subtitle": "Las herramientas que domino",
+    "categories": [
+      {
+        "name": "Frontend",
+        "icon": "🎨",
+        "skills": [
+          { "name": "React", "level": 90, "icon": "⚛️" },
+          { "name": "Next.js", "level": 85, "icon": "▲" },
+          { "name": "TypeScript", "level": 80, "icon": "🔷" },
+          { "name": "Tailwind CSS", "level": 90, "icon": "🎨" },
+          { "name": "JavaScript", "level": 95, "icon": "📜" }
+        ]
+      },
+      {
+        "name": "Backend",
+        "icon": "⚙️",
+        "skills": [
+          { "name": "Node.js", "level": 85, "icon": "🟢" },
+          { "name": "Python", "level": 80, "icon": "🐍" },
+          { "name": "PostgreSQL", "level": 75, "icon": "🐘" },
+          { "name": "MongoDB", "level": 70, "icon": "🍃" },
+          { "name": "Express.js", "level": 85, "icon": "🚀" }
+        ]
+      },
+      {
+        "name": "DevOps & Tools",
+        "icon": "🔧",
+        "skills": [
+          { "name": "Git", "level": 90, "icon": "📝" },
+          { "name": "Docker", "level": 75, "icon": "🐳" },
+          { "name": "AWS", "level": 70, "icon": "☁️" },
+          { "name": "Vercel", "level": 85, "icon": "▲" },
+          { "name": "VS Code", "level": 95, "icon": "💙" }
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Algunos de mis trabajos recientes",
+    "items": [
+      {
+        "id": 1,
+        "title": "E-commerce Moderno",
+        "description": "Plataforma de comercio electrónico completa con carrito de compras, pagos integrados y panel de administración.",
+        "image": "/images/proyecto1.jpg",
+        "technologies": ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
+        "github": "https://github.com/CarlosMontoyaHidalgo/ecommerce",
+        "demo": "https://ecommerce-demo.vercel.app",
+        "featured": true
+      },
+      {
+        "id": 2,
+        "title": "Dashboard Analytics",
+        "description": "Dashboard interactivo para análisis de datos con gráficos en tiempo real y métricas personalizables.",
+        "image": "/images/proyecto2.jpg",
+        "technologies": ["React", "D3.js", "Node.js", "MongoDB"],
+        "github": "https://github.com/CarlosMontoyaHidalgo/dashboard",
+        "demo": "https://dashboard-demo.vercel.app",
+        "featured": true
+      },
+      {
+        "id": 3,
+        "title": "App Móvil React Native",
+        "description": "Aplicación móvil multiplataforma para gestión de tareas con sincronización en la nube.",
+        "image": "/images/proyecto3.jpg",
+        "technologies": ["React Native", "Firebase", "TypeScript"],
+        "github": "https://github.com/CarlosMontoyaHidalgo/mobile-app",
+        "demo": null,
+        "featured": false
+      },
+      {
+        "id": 4,
+        "title": "API REST Completa",
+        "description": "API RESTful robusta con autenticación JWT, documentación Swagger y testing automatizado.",
+        "image": "/images/proyecto4.jpg",
+        "technologies": ["Node.js", "Express", "JWT", "Swagger"],
+        "github": "https://github.com/CarlosMontoyaHidalgo/api-rest",
+        "demo": "https://api-demo.herokuapp.com/docs",
+        "featured": false
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
+    "description": "Estoy siempre abierto a nuevas oportunidades y colaboraciones. No dudes en contactarme si tienes alguna pregunta o propuesta.",
+    "email": "carlos@example.com",
+    "phone": "+34 123 456 789",
+    "location": "España",
+    "availability": "Disponible para proyectos freelance",
+    "responseTime": "Respondo en menos de 24 horas",
+    "socialLinks": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/CarlosMontoyaHidalgo",
+        "icon": "github"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://linkedin.com/in/carlos-montoya-hidalgo",
+        "icon": "linkedin"
+      },
+      {
+        "name": "Email",
+        "url": "mailto:carlos@example.com",
+        "icon": "mail"
+      }
+    ]
+  }
+}

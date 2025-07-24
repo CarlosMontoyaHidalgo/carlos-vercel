@@ -1,0 +1,45 @@
+{
+  "siteConfig": {
+    "name": "Carlos Montoya - Portfolio",
+    "description": "Portfolio personal de Carlos Montoya Hidalgo - Desarrollador Full Stack",
+    "url": "https://carlos-portfolio.vercel.app",
+    "ogImage": "/images/og-image.jpg",
+    "keywords": ["Carlos Montoya", "Desarrollador", "Full Stack", "React", "Next.js", "Portfolio"],
+    "author": "Carlos Montoya Hidalgo"
+  },
+  "theme": {
+    "defaultTheme": "dark",
+    "enableThemeToggle": true,
+    "colors": {
+      "primary": "#3182ce",
+      "secondary": "#805ad5",
+      "accent": "#ff6b35",
+      "success": "#38a169",
+      "warning": "#ed8936",
+      "error": "#e53e3e"
+    }
+  },
+  "features": {
+    "enableContactForm": true,
+    "enableBlog": false,
+    "enableMultiLanguage": false,
+    "enableAnalytics": false,
+    "showLastUpdated": true
+  },
+  "social": {
+    "showInFooter": true,
+    "showInHero": true,
+    "showInContact": true
+  },
+  "animations": {
+    "enableHeroTyping": true,
+    "typingSpeed": 100,
+    "enableHoverEffects": true,
+    "enableScrollAnimations": true
+  },
+  "layout": {
+    "enableSidebar": true,
+    "defaultNavigationType": "header",
+    "enableMobileMenu": true
+  }
+}

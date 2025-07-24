@@ -2,23 +2,33 @@
 
 import { useEffect, useState } from 'react'
 import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react'
+import { useHeroData, usePersonalInfo, useContactData } from '@/hooks/usePortfolioData'
+import { useAnimationConfig } from '@/hooks/useConfig'
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('')
-  const fullText = 'Desarrollador Full Stack'
+  const heroData = useHeroData()
+  const personalInfo = usePersonalInfo()
+  const contactData = useContactData()
+  const animationConfig = useAnimationConfig()
   
   useEffect(() => {
+    if (!animationConfig.enableHeroTyping) {
+      setDisplayText(heroData.typingText)
+      return
+    }
+
     let index = 0
     const timer = setInterval(() => {
-      setDisplayText(fullText.slice(0, index))
+      setDisplayText(heroData.typingText.slice(0, index))
       index++
-      if (index > fullText.length) {
+      if (index > heroData.typingText.length) {
         clearInterval(timer)
       }
-    }, 100)
+    }, animationConfig.typingSpeed)
     
     return () => clearInterval(timer)
-  }, [fullText])
+  }, [heroData.typingText, animationConfig.enableHeroTyping, animationConfig.typingSpeed])
 
   const scrollToAbout = () => {
     document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })
@@ -40,9 +50,9 @@ export default function Hero() {
         <div className="space-y-6 sm:space-y-8">
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight" style={{ color: '#ffffff' }}>
-              ¡Hola! Soy{' '}
+              {heroData.greeting}{' '}
               <span className="drop-shadow-lg bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
-                Carlos
+                {personalInfo.name}
               </span>
             </h1>
             
@@ -55,13 +65,13 @@ export default function Hero() {
           </div>
           
           <p className="text-base sm:text-lg md:text-xl max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4 drop-shadow-md" style={{ color: '#ffffff' }}>
-            Apasionado por crear experiencias digitales increíbles utilizando las últimas tecnologías web, móvil y de investigación.
+            {heroData.description}
           </p>
           
           {/* Social Links - más pequeños en móvil */}
           <div className="flex justify-center space-x-4 sm:space-x-6 mb-6 sm:mb-8 social-links">
             <a
-              href="https://github.com/CarlosMontoyaHidalgo"
+              href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               className="glass-effect p-3 sm:p-4 rounded-full hover:scale-110 transition-all duration-300"
@@ -73,7 +83,7 @@ export default function Hero() {
               <Github size={20} className="sm:w-6 sm:h-6" />
             </a>
             <a
-              href="https://linkedin.com/in/carlos-montoya-hidalgo"
+              href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="glass-effect p-3 sm:p-4 rounded-full hover:scale-110 transition-all duration-300"
@@ -85,7 +95,7 @@ export default function Hero() {
               <Linkedin size={20} className="sm:w-6 sm:h-6" />
             </a>
             <a
-              href="mailto:carlos@example.com"
+              href={`mailto:${contactData.email}`}
               className="glass-effect p-3 sm:p-4 rounded-full hover:scale-110 transition-all duration-300"
               style={{ color: '#ffffff' }}
               onMouseEnter={(e) => { e.currentTarget.style.color = '#86efac' }}
@@ -98,37 +108,43 @@ export default function Hero() {
           
           {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 cta-buttons">
-            <button
-              onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="relative btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg z-10 border"
-              style={{ 
-                backgroundColor: '#000000',
-                color: '#ffffff',
-                borderColor: 'rgba(255, 255, 255, 0.2)'
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#374151' }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#000000' }}
-            >
-              Ver Proyectos
-            </button>
-            <button
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="relative btn-secondary glass-effect px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 z-10 border-2"
-              style={{ 
-                color: '#ffffff',
-                borderColor: 'rgba(255, 255, 255, 0.3)'
-              }}
-              onMouseEnter={(e) => { 
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
-              }}
-              onMouseLeave={(e) => { 
-                e.currentTarget.style.backgroundColor = 'transparent'
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'
-              }}
-            >
-              Contactar
-            </button>
+            {heroData.ctaButtons.map((button, index) => (
+              <button
+                key={index}
+                onClick={() => document.querySelector(button.href)?.scrollIntoView({ behavior: 'smooth' })}
+                className={`relative px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 z-10 ${
+                  button.type === 'primary' 
+                    ? 'shadow-lg border' 
+                    : 'glass-effect border-2'
+                }`}
+                style={button.type === 'primary' ? { 
+                  backgroundColor: '#000000',
+                  color: '#ffffff',
+                  borderColor: 'rgba(255, 255, 255, 0.2)'
+                } : { 
+                  color: '#ffffff',
+                  borderColor: 'rgba(255, 255, 255, 0.3)'
+                }}
+                onMouseEnter={(e) => { 
+                  if (button.type === 'primary') {
+                    e.currentTarget.style.backgroundColor = '#374151'
+                  } else {
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
+                  }
+                }}
+                onMouseLeave={(e) => { 
+                  if (button.type === 'primary') {
+                    e.currentTarget.style.backgroundColor = '#000000'
+                  } else {
+                    e.currentTarget.style.backgroundColor = 'transparent'
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'
+                  }
+                }}
+              >
+                {button.text}
+              </button>
+            ))}
           </div>
         </div>
 

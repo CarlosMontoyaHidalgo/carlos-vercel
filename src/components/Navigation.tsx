@@ -4,13 +4,16 @@ import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import ThemeToggle, { MobileThemeToggle } from './ThemeToggle'
 import NavigationSettings from './NavigationSettings'
-import { useNavigation } from './NavigationProvider'
+import { useNavigation as useNavigationContext } from './NavigationProvider'
+import { useNavigation as useNavigationData, usePersonalInfo } from '@/hooks/usePortfolioData'
 import Sidebar from './Sidebar'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { navigationType, isSidebarOpen, setIsSidebarOpen } = useNavigation()
+  const { navigationType, isSidebarOpen, setIsSidebarOpen } = useNavigationContext()
+  const navItems = useNavigationData()
+  const personalInfo = usePersonalInfo()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,14 +23,6 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const navItems = [
-    { name: 'Inicio', href: '#hero' },
-    { name: 'Sobre mí', href: '#about' },
-    { name: 'Tecnologías', href: '#technologies' },
-    { name: 'Proyectos', href: '#projects' },
-    { name: 'Contacto', href: '#contact' },
-  ]
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
@@ -69,7 +64,7 @@ export default function Navigation() {
             textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
             fontWeight: '700'
           }}>
-            Carlos
+            {personalInfo.name}
           </div>
 
           {/* Desktop Navigation */}
