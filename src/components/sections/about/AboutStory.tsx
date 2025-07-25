@@ -26,7 +26,7 @@ export default function AboutStory() {
           expandiendo mis conocimientos aprendiendo desarrollo iOS con Swift y SwiftUI.
         </p>
         <p>
-          Estoy trabajando en mi Trabajo de Fin de Grado (TFG), enfocado en 
+          Terminé mi Trabajo de Fin de Grado (TFG), enfocado en 
           aplicaciones innovadoras de machine learning y desarrollo móvil, 
           lo que me permite combinar investigación académica con implementación práctica.
         </p>
