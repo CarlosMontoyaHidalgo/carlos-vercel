@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Lock, Eye, EyeOff, Shield, AlertTriangle, CheckCircle } from 'lucide-react'
+import { Lock, Eye, EyeOff, Shield, AlertTriangle, CheckCircle, Home, ArrowLeft } from 'lucide-react'
+import Link from 'next/link'
 
 interface LoginFormProps {
   onAuthenticated: () => void
@@ -94,6 +95,16 @@ export default function AdminLoginForm({ onAuthenticated }: LoginFormProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center p-4">
+      {/* Back to Home Button - Fixed Position */}
+      <Link
+        href="/"
+        className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-lg text-white rounded-lg hover:bg-white/20 transition-all border border-white/20"
+        title="Volver al portfolio principal"
+      >
+        <ArrowLeft size={18} />
+        <span className="hidden sm:inline">Volver al Inicio</span>
+      </Link>
+
       <motion.div
         className="w-full max-w-md"
         initial={{ opacity: 0, y: 20 }}
@@ -227,9 +238,20 @@ export default function AdminLoginForm({ onAuthenticated }: LoginFormProps) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
         >
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-400 mb-4">
             Solo usuarios autorizados • Todos los accesos son registrados
           </p>
+          
+          {/* Navigation Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/20 text-blue-200 rounded-lg hover:bg-blue-600/30 transition-all border border-blue-500/30"
+            >
+              <Home size={16} />
+              Volver al Portfolio
+            </Link>
+          </div>
         </motion.div>
       </motion.div>
     </div>

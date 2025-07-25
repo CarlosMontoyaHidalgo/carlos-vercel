@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Plus, Trash2, Save, X, Edit2, BarChart3, FileText, Code, Users, Briefcase, LogOut, Shield } from 'lucide-react'
+import { Plus, Trash2, Save, X, Edit2, BarChart3, FileText, Code, Users, Briefcase, LogOut, Shield, Home, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import AnalyticsDashboard from '@/components/admin/AnalyticsDashboard'
 import AdminLoginForm from '@/components/admin/AdminLoginForm'
@@ -972,7 +972,17 @@ export default function AdminPage() {
                 </p>
               </div>
               
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
+                {/* Back to Home Button */}
+                <Link
+                  href="/"
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  title="Volver al portfolio"
+                >
+                  <Home size={18} />
+                  <span className="hidden sm:inline">Inicio</span>
+                </Link>
+
                 {/* Security Stats */}
                 {securityStats && (
                   <div className="flex items-center gap-4 text-sm">
@@ -1510,14 +1520,37 @@ export default function AdminPage() {
             </div>
           </motion.div>
 
-          <div className="mt-8 text-center">
+          {/* Navigation Footer */}
+          <motion.div 
+            className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             <Link
               href="/"
-              className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all hover:scale-105 transform"
             >
-              ← Volver al Portfolio
+              <Home size={20} />
+              Volver al Portfolio
             </Link>
-          </div>
+            
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-all hover:scale-105 transform"
+            >
+              <ArrowLeft size={20} />
+              Ir al Inicio
+            </button>
+
+            <button
+              onClick={handleLogout}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all hover:scale-105 transform"
+            >
+              <LogOut size={20} />
+              Cerrar Sesión
+            </button>
+          </motion.div>
         </motion.div>
       </div>
       
@@ -1525,6 +1558,29 @@ export default function AdminPage() {
       {renderExperienceForm()}
       {renderTechnologyForm()}
       {renderProjectForm()}
+
+      {/* Floating Action Buttons */}
+      <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+        {/* Back to Top */}
+        <motion.button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="p-3 bg-gray-600 text-white rounded-full shadow-lg hover:bg-gray-700 transition-colors"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          title="Ir al inicio de la página"
+        >
+          <ArrowLeft size={20} className="rotate-90" />
+        </motion.button>
+
+        {/* Back to Portfolio */}
+        <Link
+          href="/"
+          className="p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors block"
+          title="Volver al portfolio principal"
+        >
+          <Home size={20} />
+        </Link>
+      </div>
     </div>
   )
 }
