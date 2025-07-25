@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Archivos de documentación sensibles
+ESTRUCTURA.md
+CONTENT-GUIDE.md
+RESPONSIVE-IMPROVEMENTS.md
+.github/copilot-instructions.md
+
+# Otros archivos sensibles
+temp_*
+*.backup
+*.bak
+.vscode/settings.json
+
+# Mantener README.md para GitHub (comentar la línea de abajo si también quieres ocultarlo)
+# README.md
