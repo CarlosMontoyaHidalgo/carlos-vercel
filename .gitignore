@@ -41,6 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 # Archivos de documentación sensibles
+*.md
 ESTRUCTURA.md
 CONTENT-GUIDE.md
 RESPONSIVE-IMPROVEMENTS.md
@@ -52,5 +53,6 @@ temp_*
 *.bak
 .vscode/settings.json
 
-# Mantener README.md para GitHub (comentar la línea de abajo si también quieres ocultarlo)
-# README.md
+# Todos los archivos markdown están ocultos por seguridad
+# Si necesitas hacer público algún README específico, agrégalo manualmente con:
+# git add -f README.md

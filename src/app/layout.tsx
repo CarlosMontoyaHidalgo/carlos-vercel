@@ -6,6 +6,7 @@ import { NavigationProvider } from "@/providers/NavigationProvider";
 import { LanguageProvider } from "@/providers/LanguageProvider";
 import AdminFloatingButton from "@/components/AdminFloatingButton";
 import SmartChatbot from "@/components/features/SmartChatbot";
+import SecretAdminAccess from "@/components/ui/SecretAdminAccess";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -53,6 +54,7 @@ export default function RootLayout({
             <NavigationProvider>
               {children}
               <AdminFloatingButton />
+              <SecretAdminAccess />
             </NavigationProvider>
           </LanguageProvider>
         </ThemeProvider>

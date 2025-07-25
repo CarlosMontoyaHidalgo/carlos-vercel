@@ -1,12 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-// Tu IP autorizada (reemplaza con tu IP real)
-const AUTHORIZED_IPS = [
-  '127.0.0.1', // localhost
-  '::1', // localhost IPv6
-  '192.168.1.35', // Tu IP local actual (cámbiala por la tuya)
-  // Agrega aquí otras IPs autorizadas si necesitas
-]
+// Configuración de seguridad flexible para desarrollo y producción
+const SECURITY_CONFIG = {
+  // IPs autorizadas (principalmente para desarrollo local)
+  AUTHORIZED_IPS: [
+    '127.0.0.1', // localhost
+    '::1', // localhost IPv6
+    '192.168.1.35', // Tu IP local
+    // En producción, esto se ignora si DISABLE_IP_CHECK está en true
+  ],
+  
+  // En producción, desactivar verificación de IP por defecto
+  DISABLE_IP_CHECK: process.env.NODE_ENV === 'production',
+  
+  // Rutas secretas permitidas
+  SECRET_ADMIN_PATH: process.env.ADMIN_SECRET_PATH || 'mi-panel-secreto-2025',
+  SECRET_KEY: process.env.ADMIN_SECRET_KEY || 'clave-acceso-secreta-carlos'
+}
 
 // Lista de User Agents sospechosos (bots, scrapers)
 const BLOCKED_USER_AGENTS = [
@@ -16,12 +26,13 @@ const BLOCKED_USER_AGENTS = [
 
 // Rutas que intentan acceder a admin de forma sospechosa
 const SUSPICIOUS_PATTERNS = [
-  '/admin.php', '/administrator', '/wp-admin', '/admin/', '/backend',
+  '/admin.php', '/administrator', '/wp-admin', '/backend',
   '/dashboard', '/panel', '/admin/login', '/admin/panel'
 ]
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+  const searchParams = request.nextUrl.searchParams
   
   // Verificar patrones sospechosos
   if (SUSPICIOUS_PATTERNS.some(pattern => pathname.includes(pattern))) {
@@ -32,22 +43,36 @@ export function middleware(request: NextRequest) {
     console.warn(`🚨 SUSPICIOUS ACCESS ATTEMPT: ${pathname} from ${clientIP}`)
     return NextResponse.redirect(new URL('/404', request.url))
   }
+
+  // Verificar acceso a admin con URL secreta
+  if (pathname === `/${SECURITY_CONFIG.SECRET_ADMIN_PATH}`) {
+    const secretKey = searchParams.get('key')
+    
+    // Verificar que tenga la clave secreta correcta
+    if (secretKey !== SECURITY_CONFIG.SECRET_KEY) {
+      console.warn(`🚨 UNAUTHORIZED ACCESS TO SECRET PATH: ${pathname} without valid key`)
+      return NextResponse.redirect(new URL('/404', request.url))
+    }
+    
+    // Si tiene la clave correcta, permitir acceso sin más verificaciones
+    console.log(`✅ AUTHORIZED ACCESS TO SECRET ADMIN PATH from ${request.headers.get('x-forwarded-for')}`)
+    return NextResponse.next()
+  }
   
-  // Solo aplicar middleware de seguridad estricta a rutas de admin
+  // Aplicar verificaciones estrictas solo a /admin tradicional
   if (pathname.startsWith('/admin')) {
     const forwarded = request.headers.get('x-forwarded-for')
     const realIP = request.headers.get('x-real-ip')
-    const connectingIP = request.headers.get('cf-connecting-ip') // Cloudflare
+    const connectingIP = request.headers.get('cf-connecting-ip')
     
     const ip = forwarded?.split(',')[0] || realIP || connectingIP || '127.0.0.1'
     const userAgent = request.headers.get('user-agent') || ''
 
     console.log('Admin access attempt from IP:', ip, 'UserAgent:', userAgent)
 
-    // Verificar IP autorizada
-    if (!AUTHORIZED_IPS.includes(ip.trim())) {
+    // Verificar IP solo si no está desactivada la verificación
+    if (!SECURITY_CONFIG.DISABLE_IP_CHECK && !SECURITY_CONFIG.AUTHORIZED_IPS.includes(ip.trim())) {
       console.warn(`🚨 UNAUTHORIZED IP: ${ip} attempted to access ${pathname}`)
-      // Redirigir a 404 para ocultar que existe la ruta
       return NextResponse.redirect(new URL('/404', request.url))
     }
 
