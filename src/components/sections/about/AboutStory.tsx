@@ -32,8 +32,7 @@ export default function AboutStory() {
         </p>
         <p>
           Me mantengo constantemente actualizado con las últimas tecnologías 
-          y mejores prácticas, participando en la comunidad de desarrolladores 
-          y contribuyendo a proyectos open source.
+          y mejores prácticas.
         </p>
         <p className="font-medium text-lg mt-6 p-4 rounded-lg" style={{ 
           backgroundColor: 'var(--muted)', 
