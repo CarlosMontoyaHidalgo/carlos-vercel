@@ -3,16 +3,18 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import ThemeToggle, { MobileThemeToggle } from '@/components/ui/ThemeToggle'
+import LanguageToggle from '@/components/ui/LanguageToggle'
 import NavigationSettings from '@/components/ui/NavigationSettings'
 import { useNavigation } from '@/providers/NavigationProvider'
+import { useNavigationItems } from '@/hooks/useNavigationItems'
 import Sidebar from './Sidebar'
-import { NAVIGATION_ITEMS } from '@/utils/constants'
 import { scrollToSection } from '@/utils/helpers'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { navigationType, isSidebarOpen, setIsSidebarOpen } = useNavigation()
+  const navItems = useNavigationItems()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,8 +24,6 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const navItems = NAVIGATION_ITEMS
 
   const handleScrollToSection = (href: string) => {
     scrollToSection(href)
@@ -90,6 +90,7 @@ export default function Navigation() {
               </button>
             ))}
             <div className="flex items-center space-x-2 lg:space-x-3">
+              <LanguageToggle />
               <ThemeToggle />
               <NavigationSettings />
             </div>
@@ -97,6 +98,7 @@ export default function Navigation() {
 
           {/* Mobile menu button and theme toggle */}
           <div className="md:hidden flex items-center space-x-2 sm:space-x-3">
+            <LanguageToggle />
             <MobileThemeToggle />
             <NavigationSettings />
             <button

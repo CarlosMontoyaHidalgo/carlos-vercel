@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react'
 import { useHeroData, usePersonalInfo, useContactData } from '@/hooks/usePortfolioData'
 import { useAnimationConfig } from '@/hooks/useConfig'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('')
@@ -11,24 +12,27 @@ export default function Hero() {
   const personalInfo = usePersonalInfo()
   const contactData = useContactData()
   const animationConfig = useAnimationConfig()
+  const { t } = useLanguage()
+  
+  const typingText = t('hero.typing')
   
   useEffect(() => {
     if (!animationConfig.enableHeroTyping) {
-      setDisplayText(heroData.typingText)
+      setDisplayText(typingText)
       return
     }
 
     let index = 0
     const timer = setInterval(() => {
-      setDisplayText(heroData.typingText.slice(0, index))
+      setDisplayText(typingText.slice(0, index))
       index++
-      if (index > heroData.typingText.length) {
+      if (index > typingText.length) {
         clearInterval(timer)
       }
     }, animationConfig.typingSpeed)
     
     return () => clearInterval(timer)
-  }, [heroData.typingText, animationConfig.enableHeroTyping, animationConfig.typingSpeed])
+  }, [typingText, animationConfig.enableHeroTyping, animationConfig.typingSpeed])
 
   const scrollToAbout = () => {
     document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })
@@ -50,7 +54,7 @@ export default function Hero() {
         <div className="space-y-6 sm:space-y-8">
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight" style={{ color: '#ffffff' }}>
-              {heroData.greeting}{' '}
+              {t('hero.greeting')}{' '}
               <span className="drop-shadow-lg bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
                 {personalInfo.name}
               </span>
@@ -65,7 +69,7 @@ export default function Hero() {
           </div>
           
           <p className="text-base sm:text-lg md:text-xl max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4 drop-shadow-md" style={{ color: '#ffffff' }}>
-            {heroData.description}
+            {t('hero.description')}
           </p>
           
           {/* Social Links - más pequeños en móvil */}
@@ -142,7 +146,9 @@ export default function Hero() {
                   }
                 }}
               >
-                {button.text}
+                {button.href === '#projects' ? t('hero.viewProjects') : 
+                 button.href === '#contact' ? t('hero.contact') : 
+                 button.text}
               </button>
             ))}
           </div>

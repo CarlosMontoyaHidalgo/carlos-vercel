@@ -1,22 +1,28 @@
 'use client'
 
-import { useExperienceData, useEducationData } from '@/hooks/usePortfolioData'
+import { useLocalizedExperience, useLocalizedEducation } from '@/hooks/useLocalizedData'
+import { useLanguage } from '@/providers/LanguageProvider'
 import { GraduationCap, Briefcase } from 'lucide-react'
 import WorkExperienceCard from './experience/WorkExperienceCard'
 import EducationCard from './experience/EducationCard'
 import SectionHeader from './experience/SectionHeader'
 
 export default function Experience() {
-  const experienceData = useExperienceData()
-  const educationData = useEducationData()
+  const experienceData = useLocalizedExperience()
+  const educationData = useLocalizedEducation()
+  const { t, language } = useLanguage()
 
   const formatDate = (dateString: string) => {
-    if (dateString === 'Actualidad') return 'Actualidad'
+    if (dateString === 'Actualidad' || dateString === 'Present') return t('experience.current')
     const date = new Date(dateString)
-    return date.toLocaleDateString('es-ES', { 
+    return date.toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', { 
       year: 'numeric', 
       month: 'long' 
     })
+  }
+
+  if (!experienceData || !educationData) {
+    return <div>{t('common.loading')}</div>
   }
 
   return (
@@ -25,10 +31,10 @@ export default function Experience() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
-            {experienceData.title}
+            {t('experience.title')}
           </h2>
           <p className="text-lg sm:text-xl" style={{ color: 'var(--muted-foreground)' }}>
-            {experienceData.subtitle}
+            {t('experience.subtitle')}
           </p>
         </div>
 
@@ -36,7 +42,7 @@ export default function Experience() {
         <div className="mb-20">
           <SectionHeader 
             icon={<Briefcase className="mr-3" size={28} style={{ color: 'var(--primary)' }} />}
-            title="Experiencia Profesional"
+            title={t('experience.workExperience')}
           />
 
           <div className="space-y-8">
@@ -54,7 +60,7 @@ export default function Experience() {
         <div className="mb-20">
           <SectionHeader 
             icon={<GraduationCap className="mr-3" size={28} style={{ color: 'var(--primary)' }} />}
-            title="Educación"
+            title={t('experience.education')}
           />
 
           <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">

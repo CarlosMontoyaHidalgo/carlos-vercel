@@ -2,6 +2,7 @@
 
 import { WorkExperience } from '@/hooks/usePortfolioData'
 import { Calendar, MapPin } from 'lucide-react'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface WorkExperienceCardProps {
   experience: WorkExperience
@@ -9,6 +10,8 @@ interface WorkExperienceCardProps {
 }
 
 export default function WorkExperienceCard({ experience, formatDate }: WorkExperienceCardProps) {
+  const { t } = useLanguage()
+  
   return (
     <div 
       className="glass-effect rounded-xl p-6 sm:p-8 relative overflow-hidden group hover:shadow-lg transition-all duration-300"
@@ -20,7 +23,7 @@ export default function WorkExperienceCard({ experience, formatDate }: WorkExper
       {/* Indicador de destacado */}
       {experience.featured && (
         <div className="absolute top-0 right-0 bg-gradient-to-l from-yellow-400 to-yellow-300 text-black px-3 py-1 text-xs font-semibold rounded-bl-lg">
-          Destacado
+          {t('common.featured')}
         </div>
       )}
 
@@ -60,7 +63,7 @@ export default function WorkExperienceCard({ experience, formatDate }: WorkExper
       {/* Logros */}
       <div className="mb-6">
         <h5 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-          Logros principales:
+          {t('experience.mainAchievements')}
         </h5>
         <ul className="space-y-2">
           {experience.achievements.map((achievement, achIndex) => (
@@ -77,7 +80,7 @@ export default function WorkExperienceCard({ experience, formatDate }: WorkExper
       {/* Tecnologías */}
       <div>
         <h5 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-          Tecnologías utilizadas:
+          {t('experience.usedTechnologies')}
         </h5>
         <div className="flex flex-wrap gap-2">
           {experience.technologies.map((tech, techIndex) => (

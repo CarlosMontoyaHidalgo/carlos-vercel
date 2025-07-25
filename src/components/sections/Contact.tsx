@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { usePortfolioData } from '@/hooks/usePortfolioData'
+import { useLanguage } from '@/providers/LanguageProvider'
 import ContactHeader from './contact/ContactHeader'
 import ContactGrid from './contact/ContactGrid'
 import SocialLinks from './contact/SocialLinks'
@@ -9,25 +10,26 @@ import SocialLinks from './contact/SocialLinks'
 export default function Contact() {
   const portfolioData = usePortfolioData()
   const { contact } = portfolioData
+  const { t } = useLanguage()
 
   // Crear la información de contacto para ContactGrid
   const contactInfo = [
     {
       icon: '📧',
-      title: 'Email',
+      title: t('contact.email'),
       value: contact.email,
       link: `mailto:${contact.email}`
     },
     {
-      icon: '',
-      title: 'Location',
-      value: contact.location,
+      icon: '📍',
+      title: t('contact.location'),
+      value: t('contact.locationValue'),
       link: '#'
     },
     {
       icon: '⚡',
-      title: 'Availability',
-      value: contact.availability,
+      title: t('contact.availabilityTitle'),
+      value: t('contact.availabilityValue'),
       link: '#'
     }
   ]
@@ -42,8 +44,8 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           <ContactHeader 
-            title={contact.title}
-            subtitle={contact.subtitle}
+            title={t('contact.title')}
+            subtitle={t('contact.subtitle')}
           />
           <div className="max-w-4xl mx-auto">
             <ContactGrid contactInfo={contactInfo} />

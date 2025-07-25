@@ -1,3 +1,5 @@
+import { useLanguage } from '@/providers/LanguageProvider'
+
 interface Technology {
   name: string
   category: string
@@ -12,10 +14,23 @@ interface TechCardProps {
 }
 
 export default function TechCard({ tech, index }: TechCardProps) {
+  const { t } = useLanguage()
+  
+  const getCategoryTranslation = (category: string) => {
+    const categoryMap: { [key: string]: string } = {
+      'Frontend': t('technologies.frontend'),
+      'Backend': t('technologies.backend'),
+      'DevOps & Tools': t('technologies.devops'),
+      'Móvil': t('technologies.mobile'),
+      'Automatización': t('technologies.automationCategory')
+    }
+    return categoryMap[category] || category
+  }
+  
   const getLevelTag = (level: '' | 'learning') => {
     if (level === 'learning') {
       return {
-        text: 'Aprendiendo',
+        text: t('research.learning'),
         bgColor: 'bg-amber-500',
         textColor: 'text-white'
       }
@@ -48,7 +63,7 @@ export default function TechCard({ tech, index }: TechCardProps) {
         className="inline-block px-3 py-1 text-xs rounded-full mb-3"
         style={{ backgroundColor: 'var(--muted)', color: 'var(--muted-foreground)' }}
       >
-        {tech.category}
+        {getCategoryTranslation(tech.category)}
       </span>
       <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
         {tech.description}

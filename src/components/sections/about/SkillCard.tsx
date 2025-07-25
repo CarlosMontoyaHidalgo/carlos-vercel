@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Skill } from '@/types'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface SkillCardProps {
   skill: Skill
@@ -10,6 +11,8 @@ const ANIMATION_DELAY_MULTIPLIER = 0.1
 const ANIMATION_DURATION = 0.8
 
 export default function SkillCard({ skill, index }: SkillCardProps) {
+  const { t } = useLanguage()
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -22,7 +25,7 @@ export default function SkillCard({ skill, index }: SkillCardProps) {
       {/* Indicador de aprendiendo */}
       {skill.learning && (
         <div className="absolute top-0 right-0 bg-gradient-to-l from-blue-500 to-blue-400 text-white px-3 py-1 text-xs font-semibold rounded-bl-lg">
-          Aprendiendo
+          {t('research.learning')}
         </div>
       )}
 

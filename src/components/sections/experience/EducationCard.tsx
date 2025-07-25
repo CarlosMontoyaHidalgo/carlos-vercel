@@ -2,6 +2,7 @@
 
 import { Education } from '@/hooks/usePortfolioData'
 import { Calendar, MapPin } from 'lucide-react'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface EducationCardProps {
   education: Education
@@ -9,6 +10,8 @@ interface EducationCardProps {
 }
 
 export default function EducationCard({ education, formatDate }: EducationCardProps) {
+  const { t } = useLanguage()
+  
   return (
     <div 
       className="glass-effect rounded-xl p-6 transition-all duration-300 hover:shadow-lg relative overflow-hidden"
@@ -20,7 +23,7 @@ export default function EducationCard({ education, formatDate }: EducationCardPr
       {/* Indicador de destacado */}
       {education.featured && (
         <div className="absolute top-0 right-0 bg-gradient-to-l from-yellow-400 to-yellow-300 text-black px-3 py-1 text-xs font-semibold rounded-bl-lg">
-          Destacado
+          {t('common.featured')}
         </div>
       )}
 
@@ -44,7 +47,7 @@ export default function EducationCard({ education, formatDate }: EducationCardPr
       {education.relevantCourses && education.relevantCourses.length > 0 && (
         <div>
           <h5 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>
-            Materias relevantes:
+            {t('experience.relevantCourses')}
           </h5>
           <div className="flex flex-wrap gap-2">
             {education.relevantCourses.map((course, index) => (

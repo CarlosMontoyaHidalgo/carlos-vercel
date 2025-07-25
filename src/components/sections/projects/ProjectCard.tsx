@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 import Image from 'next/image'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface Project {
   title: string
@@ -18,6 +19,8 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
+  const { t } = useLanguage()
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -75,7 +78,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             style={{ backgroundColor: 'var(--muted)', color: 'var(--foreground)' }}
           >
             <Github size={16} />
-            <span className="text-sm">Código</span>
+            <span className="text-sm">{t('projects.viewCode')}</span>
           </a>
           
           {/* Enlace de demo desactivado temporalmente */}
@@ -83,10 +86,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             disabled
             className="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors opacity-50 cursor-not-allowed"
             style={{ backgroundColor: 'var(--muted)', color: 'var(--muted-foreground)' }}
-            title="Demo no disponible por el momento"
+            title={t('projects.demoNotAvailable')}
           >
             <ExternalLink size={16} />
-            <span className="text-sm">Demo (Próximamente)</span>
+            <span className="text-sm">{t('projects.demoComingSoon')}</span>
           </button>
         </div>
       </div>

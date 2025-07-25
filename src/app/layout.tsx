@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { NavigationProvider } from "@/providers/NavigationProvider";
+import { LanguageProvider } from "@/providers/LanguageProvider";
 import AdminFloatingButton from "@/components/AdminFloatingButton";
 
 const geistSans = Geist({
@@ -45,10 +46,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          <NavigationProvider>
-            {children}
-            <AdminFloatingButton />
-          </NavigationProvider>
+          <LanguageProvider>
+            <NavigationProvider>
+              {children}
+              <AdminFloatingButton />
+            </NavigationProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

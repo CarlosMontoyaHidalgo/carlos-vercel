@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface TechHeaderProps {
   title: string
@@ -6,6 +7,8 @@ interface TechHeaderProps {
 }
 
 export default function TechHeader({ title, subtitle }: TechHeaderProps) {
+  const { t } = useLanguage()
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -25,15 +28,15 @@ export default function TechHeader({ title, subtitle }: TechHeaderProps) {
       <div className="flex items-center justify-center gap-6 text-sm" style={{ color: 'var(--muted-foreground)' }}>
         <div className="flex items-center gap-2">
           <span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-500 text-white">
-            Principal
+            {t('technologies.principal')}
           </span>
-          <span>Tecnologías que domino</span>
+          <span>{t('technologies.principalDesc')}</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="px-2 py-1 text-xs font-semibold rounded-full bg-amber-500 text-white">
-            Aprendiendo
+            {t('technologies.learningLabel')}
           </span>
-          <span>En proceso de aprendizaje</span>
+          <span>{t('technologies.learningDesc')}</span>
         </div>
       </div>
     </motion.div>

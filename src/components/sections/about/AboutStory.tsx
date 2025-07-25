@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
 import { useAboutData } from '@/hooks/usePortfolioData'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 export default function AboutStory() {
   const aboutData = useAboutData()
+  const { t } = useLanguage()
 
   return (
     <motion.div
@@ -12,34 +14,27 @@ export default function AboutStory() {
       viewport={{ once: true }}
     >
       <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-        Mi Historia
+        {t('about.myStory')}
       </h3>
       <div className="space-y-4" style={{ color: 'var(--muted-foreground)' }}>
         <p>
-          Comencé mi viaje en el desarrollo tecnológico hace varios años, 
-          motivado por la curiosidad de entender cómo funcionan las 
-          aplicaciones que usamos diariamente.
+          {t('about.story1')}
         </p>
         <p>
-          Mi experiencia abarca desde desarrollo web con React y Next.js hasta 
-          desarrollo móvil nativo para Android con Kotlin. Actualmente estoy 
-          expandiendo mis conocimientos aprendiendo desarrollo iOS con Swift y SwiftUI.
+          {t('about.story2')}
         </p>
         <p>
-          Terminé mi Trabajo de Fin de Grado (TFG), enfocado en 
-          aplicaciones innovadoras de machine learning y desarrollo móvil, 
-          lo que me permite combinar investigación académica con implementación práctica.
+          {t('about.story3')}
         </p>
         <p>
-          Me mantengo constantemente actualizado con las últimas tecnologías 
-          y mejores prácticas.
+          {t('about.story4')}
         </p>
         <p className="font-medium text-lg mt-6 p-4 rounded-lg" style={{ 
           backgroundColor: 'var(--muted)', 
           color: 'var(--foreground)',
           border: '1px solid var(--border)'
         }}>
-          💡 {aboutData.philosophy}
+          💡 {t('about.philosophy')}
         </p>
       </div>
     </motion.div>

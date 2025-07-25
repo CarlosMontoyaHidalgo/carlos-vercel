@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Code, Smartphone, Database, Lightbulb, Rocket } from 'lucide-react'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface DevelopmentArea {
   icon: React.ReactNode
@@ -14,30 +15,31 @@ const ANIMATION_DURATION = 0.6
 const STAGGER_DELAY = 0.1
 
 export default function Research() {
+  const { t } = useLanguage()
   
   const developmentAreas: DevelopmentArea[] = [
     {
       icon: <Smartphone className="w-8 h-8" />,
-      title: 'Desarrollo Móvil',
-      description: 'Creando aplicaciones nativas para Android e iOS con las últimas tecnologías',
-      technologies: ['Jetpack Compose', 'Kotlin', 'Java', 'Android Studio', 'Swift (aprendiendo)']
+      title: t('research.mobileTitle'),
+      description: t('research.mobileDescription'),
+      technologies: ['Jetpack Compose', 'Kotlin', 'Java', 'Android Studio', `Swift (${t('research.learning')})`]
     },
     {
       icon: <Code className="w-8 h-8" />,
-      title: 'Desarrollo Web',
-      description: 'Construyendo aplicaciones web modernas y responsivas con frameworks actuales',
+      title: t('research.webTitle'),
+      description: t('research.webDescription'),
       technologies: ['React', 'Next.js', 'TypeScript', 'Vue.js', 'Angular', 'Tailwind CSS']
     },
     {
       icon: <Database className="w-8 h-8" />,
-      title: 'Backend y APIs',
-      description: 'Desarrollando servidores robustos y APIs escalables para aplicaciones completas',
+      title: t('research.backendTitle'),
+      description: t('research.backendDescription'),
       technologies: ['Node.js', 'Express', 'Firebase', 'PostgreSQL']
     },
     {
       icon: <Lightbulb className="w-8 h-8" />,
-      title: 'Tecnologías Emergentes',
-      description: 'Explorando IA, automatización y nuevas herramientas para mantenerse actualizado',
+      title: t('research.emergingTitle'),
+      description: t('research.emergingDescription'),
       technologies: ['Swift', 'Dialogflow', 'Make.io', 'n8n']
     }
   ]
@@ -53,14 +55,14 @@ export default function Research() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-            Desarrollo Continuo
+            {t('research.title')}
           </h2>
           <div className="flex items-center justify-center gap-2 mb-4">
             <Rocket className="w-6 h-6 text-blue-500" />
-            <span className="text-blue-500 font-semibold">Creando proyectos constantemente</span>
+            <span className="text-blue-500 font-semibold">{t('research.subtitle')}</span>
           </div>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Enfocado en desarrollar proyectos diversos que demuestren mis habilidades técnicas y capacidad de adaptación a nuevas tecnologías
+            {t('research.description')}
           </p>
         </motion.div>
 
@@ -72,7 +74,7 @@ export default function Research() {
           className="mb-16"
         >
           <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: 'var(--foreground)' }}>
-            Áreas de Desarrollo
+            {t('research.areasTitle')}
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {developmentAreas.map((area, index) => (
@@ -118,7 +120,7 @@ export default function Research() {
           className="mb-16"
         >
           <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: 'var(--foreground)' }}>
-            Proyecto de Investigación - TFG
+            {t('research.tfgTitle')}
           </h3>
           <div className="max-w-4xl mx-auto">
             <div className="p-8 rounded-xl border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20" style={{ backgroundColor: 'var(--card)' }}>
@@ -128,20 +130,20 @@ export default function Research() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold" style={{ color: 'var(--foreground)' }}>
-                    Aplicación Android con IA para Fitness
+                    {t('research.tfgSubtitle')}
                   </h4>
-                  <p className="text-green-600 dark:text-green-400 font-semibold">Proyecto Presentado y Aprobado</p>
+                  <p className="text-green-600 dark:text-green-400 font-semibold">{t('research.tfgStatus')}</p>
                 </div>
               </div>
               
               <p className="text-gray-700 dark:text-gray-300 mb-6">
-                Desarrollo completo de una aplicación Android que integra inteligencia artificial para asistencia en rutinas de ejercicio, 
+                {t('research.tfgDescription')} 
                 creación de planes personalizados y seguimiento de progreso del usuario.
               </p>
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h5 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>Stack Técnico:</h5>
+                  <h5 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>{t('research.techStack')}</h5>
                   <div className="flex flex-wrap gap-2">
                     {['Jetpack Compose', 'MVVM', 'Kotlin', 'Firebase', 'Node.js', 'Express', 'Dialogflow'].map((tech, index) => (
                       <span 
@@ -155,12 +157,12 @@ export default function Research() {
                 </div>
                 
                 <div>
-                  <h5 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>Características:</h5>
+                  <h5 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>{t('research.features')}</h5>
                   <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                    <li>• Chatbot inteligente con Dialogflow</li>
-                    <li>• Rutinas personalizadas</li>
-                    <li>• Seguimiento de progreso</li>
-                    <li>• Arquitectura escalable MVVM</li>
+                    <li>{t('research.feature1')}</li>
+                    <li>{t('research.feature2')}</li>
+                    <li>{t('research.feature3')}</li>
+                    <li>{t('research.feature4')}</li>
                   </ul>
                 </div>
               </div>
@@ -176,34 +178,34 @@ export default function Research() {
           className="text-center"
         >
           <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-            Valor para las Empresas
+            {t('research.valueTitle')}
           </h3>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700" style={{ backgroundColor: 'var(--card)' }}>
               <Lightbulb className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
               <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-                Adaptabilidad
+                {t('research.adaptabilityTitle')}
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Capacidad de aprender rápidamente nuevas tecnologías y adaptarse a las necesidades específicas del proyecto
+                {t('research.adaptabilityDesc')}
               </p>
             </div>
             <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700" style={{ backgroundColor: 'var(--card)' }}>
               <Code className="w-8 h-8 text-green-600 dark:text-green-400 mx-auto mb-4" />
               <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-                Diversidad Técnica
+                {t('research.diversityTitle')}
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Experiencia en múltiples plataformas y tecnologías, desde desarrollo web hasta móvil y backend
+                {t('research.diversityDesc')}
               </p>
             </div>
             <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700" style={{ backgroundColor: 'var(--card)' }}>
               <Rocket className="w-8 h-8 text-purple-600 dark:text-purple-400 mx-auto mb-4" />
               <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-                Crecimiento Continuo
+                {t('research.growthTitle')}
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Mentalidad de mejora constante y pasión por mantenerse actualizado con las últimas tendencias tecnológicas
+                {t('research.growthDesc')}
               </p>
             </div>
           </div>

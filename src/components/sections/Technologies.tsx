@@ -3,22 +3,36 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { usePortfolioData } from '@/hooks/usePortfolioData'
+import { useLanguage } from '@/providers/LanguageProvider'
 import TechHeader from './technologies/TechHeader'
 import TechGrid from './technologies/TechGrid'
 
 export default function Technologies() {
   const portfolioData = usePortfolioData()
   const { technologies } = portfolioData
+  const { t } = useLanguage()
   const [showAll, setShowAll] = useState(false)
+
+  // Función para traducir categorías
+  const getCategoryTranslation = (category: string) => {
+    const categoryMap: { [key: string]: string } = {
+      'Frontend': t('technologies.frontend'),
+      'Backend': t('technologies.backend'),
+      'DevOps & Tools': t('technologies.devops'),
+      'Móvil': t('technologies.mobile'),
+      'Automatización': t('technologies.automationCategory')
+    }
+    return categoryMap[category] || category
+  }
 
   // Convertir las categorías en un array plano de tecnologías
   const allTechnologies = technologies.categories.flatMap(category =>
     category.skills.map(skill => ({
       name: skill.name,
-      category: category.name,
+      category: getCategoryTranslation(category.name),
       icon: skill.icon,
       level: (skill.level || '') as '' | 'learning',
-      description: `${skill.name} en ${category.name}`
+      description: `${skill.name} ${t('common.in')} ${getCategoryTranslation(category.name)}`
     }))
   )
 
@@ -60,8 +74,8 @@ export default function Technologies() {
           viewport={{ once: true }}
         >
           <TechHeader 
-            title={technologies.title}
-            subtitle={technologies.subtitle}
+            title={t('technologies.title')}
+            subtitle={t('technologies.subtitle')}
           />
           <TechGrid technologies={technologiesToShow} />
           
@@ -80,14 +94,14 @@ export default function Technologies() {
               >
                 {showAll ? (
                   <>
-                    <span>Mostrar menos</span>
+                    <span>{t('common.showLess')}</span>
                     <svg className="w-4 h-4 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </>
                 ) : (
                   <>
-                    <span>Ver todas las tecnologías ({remainingTechnologies.length} más)</span>
+                    <span>{t('common.showMore')} ({remainingTechnologies.length} {t('common.more')})</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>

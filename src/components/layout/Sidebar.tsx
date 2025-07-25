@@ -3,13 +3,16 @@
 import { X } from 'lucide-react'
 import { useNavigation } from '@/providers/NavigationProvider'
 import ThemeToggle from '@/components/ui/ThemeToggle'
+import LanguageToggle from '@/components/ui/LanguageToggle'
 import NavigationSettings from '@/components/ui/NavigationSettings'
 import { useEffect } from 'react'
-import { NAVIGATION_ITEMS, ANIMATION_DURATIONS } from '@/utils/constants'
+import { useNavigationItems } from '@/hooks/useNavigationItems'
+import { ANIMATION_DURATIONS } from '@/utils/constants'
 import { scrollToSection } from '@/utils/helpers'
 
 export default function Sidebar() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigation()
+  const navItems = useNavigationItems()
 
   const handleNavigation = (href: string) => {
     scrollToSection(href, () => {
@@ -67,7 +70,7 @@ export default function Sidebar() {
           {/* Navegación */}
           <nav className="flex-1 px-3 lg:px-4 py-4 lg:py-6 overflow-y-auto">
             <ul className="space-y-1 lg:space-y-2">
-              {NAVIGATION_ITEMS.map((item) => (
+              {navItems.map((item) => (
                 <li key={item.name}>
                   <button
                     onClick={() => handleNavigation(item.href)}
@@ -101,6 +104,13 @@ export default function Sidebar() {
                 Navegación
               </span>
               <NavigationSettings />
+            </div>
+            
+            <div className="flex items-center justify-between">
+              <span className="text-xs lg:text-sm font-medium" style={{ color: 'var(--muted-foreground)' }}>
+                Idioma
+              </span>
+              <LanguageToggle />
             </div>
             
             <div className="flex items-center justify-between">

@@ -1,0 +1,75 @@
+{
+  "experience": {
+    "title": "Experience & Internships",
+    "subtitle": "My educational and professional journey",
+    "items": [
+      {
+        "id": 1,
+        "position": "Web Developer",
+        "company": "2Coders S.L.",
+        "location": "Las Palmas de Gran Canaria, Spain",
+        "type": "External Internship",
+        "startDate": "2024-11",
+        "endDate": "2025-02",
+        "duration": "3 months",
+        "description": "Development and maintenance of the Velvet web application using React, Next.js and SCSS.",
+        "achievements": [
+          "Implemented new features that improved user experience",
+          "Collaborated on application performance optimization",
+          "Participated in the design and development of reusable components",
+          "Teamwork with designers and developers"
+        ],
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Next.js",
+          "SCSS"
+        ],
+        "featured": true
+      },
+      {
+        "id": 2,
+        "position": "Freelance Web & E-commerce Developer",
+        "company": "Self-employed/Freelance Projects",
+        "location": "Online",
+        "type": "Freelance",
+        "startDate": "2024-12",
+        "endDate": "2025-02",
+        "duration": "3 months",
+        "description": "Development of custom e-commerce solutions for independent clients and small businesses.",
+        "achievements": [
+          "Creation of custom online stores with Shopify",
+          "Delivery of turnkey projects ready for immediate use",
+          "Development and sale of templates and pre-configured solutions for entrepreneurs"
+        ],
+        "technologies": [
+          "Shopify"
+        ],
+        "featured": false
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "subtitle": "My academic background",
+    "items": [
+      {
+        "id": 1,
+        "degree": "Bachelor's Degree in Computer Engineering",
+        "institution": "University of Las Palmas de Gran Canaria",
+        "location": "Las Palmas de Gran Canaria, Spain",
+        "startDate": "2021-09",
+        "endDate": "2025-02",
+        "duration": "4 years",
+        "description": "Complete training in software development, algorithms, data structures and programming methodologies.",
+        "achievements": [
+          "Degree completed with approved final project",
+          "Specialization in web and mobile development",
+          "Final project focused on machine learning applications"
+        ],
+        "gpa": "",
+        "status": "Completed"
+      }
+    ]
+  }
+}
