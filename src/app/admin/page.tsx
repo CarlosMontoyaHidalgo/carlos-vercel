@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Plus, Trash2, Save, X, Edit2 } from 'lucide-react'
+import { Plus, Trash2, Save, X, Edit2, BarChart3, FileText, Code, Users, Briefcase, LogOut, Shield } from 'lucide-react'
 import Link from 'next/link'
+import AnalyticsDashboard from '@/components/admin/AnalyticsDashboard'
+import AdminLoginForm from '@/components/admin/AdminLoginForm'
 
 interface ContentSection {
   id: string
@@ -51,6 +53,10 @@ interface Project {
 }
 
 export default function AdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [authLoading, setAuthLoading] = useState(true)
+  const [securityStats, setSecurityStats] = useState<any>(null)
+  const [activeTab, setActiveTab] = useState('analytics')
   const [sections, setSections] = useState<ContentSection[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [activeSection, setActiveSection] = useState<string | null>(null)
@@ -67,11 +73,42 @@ export default function AdminPage() {
   const [editingProject, setEditingProject] = useState<Project | null>(null)
 
   useEffect(() => {
+    checkAuthStatus()
     loadContent()
     loadExperiences()
     loadTechnologies()
     loadProjects()
   }, [])
+
+  const checkAuthStatus = async () => {
+    try {
+      const response = await fetch('/api/admin/auth')
+      if (response.ok) {
+        const data = await response.json()
+        setIsAuthenticated(true)
+        setSecurityStats(data.stats)
+      }
+    } catch (error) {
+      console.error('Auth check failed:', error)
+    } finally {
+      setAuthLoading(false)
+    }
+  }
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/admin/auth', { method: 'DELETE' })
+      setIsAuthenticated(false)
+      setSecurityStats(null)
+    } catch (error) {
+      console.error('Logout failed:', error)
+    }
+  }
+
+  const handleAuthenticated = () => {
+    setIsAuthenticated(true)
+    checkAuthStatus() // Recargar stats de seguridad
+  }
 
   const loadContent = async () => {
     try {
@@ -895,6 +932,27 @@ export default function AdminPage() {
     )
   }
 
+  // Mostrar pantalla de loading mientras verifica autenticación
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-400">Verificando acceso...</p>
+        </motion.div>
+      </div>
+    )
+  }
+
+  // Mostrar formulario de login si no está autenticado
+  if (!isAuthenticated) {
+    return <AdminLoginForm onAuthenticated={handleAuthenticated} />
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -904,16 +962,111 @@ export default function AdminPage() {
           transition={{ duration: 0.6 }}
         >
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              Panel de Administración
-            </h1>
-            <p className="text-gray-600 dark:text-gray-300">
-              Edita el contenido de tu portfolio sin necesidad de código
-            </p>
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                  Panel de Administración
+                </h1>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Gestiona tu portfolio desde un lugar centralizado
+                </p>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                {/* Security Stats */}
+                {securityStats && (
+                  <div className="flex items-center gap-4 text-sm">
+                    <div className="flex items-center gap-2 px-3 py-2 bg-green-100 dark:bg-green-900/20 rounded-lg">
+                      <Shield size={16} className="text-green-600 dark:text-green-400" />
+                      <span className="text-green-700 dark:text-green-300">
+                        {securityStats.activeSessions} sesión{securityStats.activeSessions !== 1 ? 'es' : ''} activa{securityStats.activeSessions !== 1 ? 's' : ''}
+                      </span>
+                    </div>
+                    {securityStats.blockedIPs > 0 && (
+                      <div className="flex items-center gap-2 px-3 py-2 bg-red-100 dark:bg-red-900/20 rounded-lg">
+                        <span className="text-red-700 dark:text-red-300">
+                          {securityStats.blockedIPs} IP{securityStats.blockedIPs !== 1 ? 's' : ''} bloqueada{securityStats.blockedIPs !== 1 ? 's' : ''}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                )}
+                
+                {/* Logout Button */}
+                <motion.button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  title="Cerrar sesión"
+                >
+                  <LogOut size={18} />
+                  <span className="hidden sm:inline">Salir</span>
+                </motion.button>
+              </div>
+            </div>
           </div>
 
-          <div className="grid gap-6">
-            {sections.filter(section => section.type !== 'experience').map((section, index) => (
+          {/* Tabs */}
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg mb-6">
+            <div className="border-b border-gray-200 dark:border-gray-700">
+              <nav className="flex space-x-8 px-6" aria-label="Tabs">
+                {[
+                  { id: 'analytics', name: 'Analytics', icon: BarChart3, description: 'Métricas y estadísticas' },
+                  { id: 'content', name: 'Contenido', icon: FileText, description: 'Textos y secciones' },
+                  { id: 'experience', name: 'Experiencia', icon: Briefcase, description: 'Trabajo y formación' },
+                  { id: 'technologies', name: 'Tecnologías', icon: Code, description: 'Skills técnicas' },
+                  { id: 'projects', name: 'Proyectos', icon: Users, description: 'Portfolio de trabajos' }
+                ].map((tab) => {
+                  const Icon = tab.icon
+                  const isActive = activeTab === tab.id
+                  
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`group relative py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                        isActive
+                          ? 'border-blue-500 text-blue-600 dark:text-blue-400'
+                          : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <Icon size={18} />
+                        <span>{tab.name}</span>
+                      </div>
+                      <div className="absolute left-0 right-0 top-full mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                          {tab.description}
+                        </div>
+                      </div>
+                    </button>
+                  )
+                })}
+              </nav>
+            </div>
+          </div>
+
+          {/* Tab Content */}
+          <div className="tab-content">
+            {activeTab === 'analytics' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <AnalyticsDashboard />
+              </motion.div>
+            )}
+
+            {activeTab === 'content' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="grid gap-6">
+                  {sections.filter(section => section.type !== 'experience').map((section, index) => (
               <motion.div
                 key={section.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -959,7 +1112,16 @@ export default function AdminPage() {
                 )}
               </motion.div>
             ))}
+                </div>
+              </motion.div>
+            )}
 
+            {activeTab === 'experience' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
             {/* Gestor de Experiencias */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1039,7 +1201,15 @@ export default function AdminPage() {
                 )}
               </div>
             </motion.div>
+              </motion.div>
+            )}
 
+            {activeTab === 'technologies' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
             {/* Gestor de Tecnologías */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1198,8 +1368,15 @@ export default function AdminPage() {
                 )}
               </div>
             </motion.div>
-          </div>
+              </motion.div>
+            )}
 
+            {activeTab === 'projects' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
           {/* Gestor de Proyectos */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
             <div className="p-6">
@@ -1282,7 +1459,11 @@ export default function AdminPage() {
               </div>
             </div>
           </div>
+              </motion.div>
+            )}
+          </div>
 
+          {/* Instrucciones generales fuera de las pestañas */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

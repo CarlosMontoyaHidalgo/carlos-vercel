@@ -6,6 +6,8 @@ import { NavigationProvider } from "@/providers/NavigationProvider";
 import { LanguageProvider } from "@/providers/LanguageProvider";
 import AdminFloatingButton from "@/components/AdminFloatingButton";
 import SmartChatbot from "@/components/features/SmartChatbot";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +56,8 @@ export default function RootLayout({
             </NavigationProvider>
           </LanguageProvider>
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
