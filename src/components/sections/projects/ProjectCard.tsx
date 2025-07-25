@@ -78,29 +78,16 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <span className="text-sm">Código</span>
           </a>
           
-          {/* Enlace de demo condicional - desactivado si no hay demo disponible */}
-          {project.demo && !project.demo.includes('placeholder') ? (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors hover:opacity-80"
-              style={{ backgroundColor: 'var(--primary)', color: 'var(--primary-foreground)' }}
-            >
-              <ExternalLink size={16} />
-              <span className="text-sm">Demo</span>
-            </a>
-          ) : (
-            <button
-              disabled
-              className="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors opacity-50 cursor-not-allowed"
-              style={{ backgroundColor: 'var(--muted)', color: 'var(--muted-foreground)' }}
-              title="Demo no disponible por el momento"
-            >
-              <ExternalLink size={16} />
-              <span className="text-sm">Demo (Próximamente)</span>
-            </button>
-          )}
+          {/* Enlace de demo desactivado temporalmente */}
+          <button
+            disabled
+            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors opacity-50 cursor-not-allowed"
+            style={{ backgroundColor: 'var(--muted)', color: 'var(--muted-foreground)' }}
+            title="Demo no disponible por el momento"
+          >
+            <ExternalLink size={16} />
+            <span className="text-sm">Demo (Próximamente)</span>
+          </button>
         </div>
       </div>
     </motion.div>
