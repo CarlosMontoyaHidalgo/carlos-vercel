@@ -17,9 +17,25 @@ export default function TechHeader({ title, subtitle }: TechHeaderProps) {
       <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
         {title}
       </h2>
-      <p className="text-lg max-w-3xl mx-auto" style={{ color: 'var(--muted-foreground)' }}>
+      <p className="text-lg max-w-3xl mx-auto mb-6" style={{ color: 'var(--muted-foreground)' }}>
         {subtitle}
       </p>
+      
+      {/* Leyenda de tags */}
+      <div className="flex items-center justify-center gap-6 text-sm" style={{ color: 'var(--muted-foreground)' }}>
+        <div className="flex items-center gap-2">
+          <span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-500 text-white">
+            Principal
+          </span>
+          <span>Tecnologías que domino</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="px-2 py-1 text-xs font-semibold rounded-full bg-amber-500 text-white">
+            Aprendiendo
+          </span>
+          <span>En proceso de aprendizaje</span>
+        </div>
+      </div>
     </motion.div>
   )
 }

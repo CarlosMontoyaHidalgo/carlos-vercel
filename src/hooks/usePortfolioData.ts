@@ -45,6 +45,7 @@ export interface AboutData {
 export interface Skill {
   name: string
   icon: string
+  level?: '' | 'learning'
 }
 
 export interface TechCategory {
@@ -213,7 +214,7 @@ export const getTechnologiesByCategory = (category: string): Skill[] => {
   const techCategory = portfolioData.technologies.categories.find(
     cat => cat.name.toLowerCase() === category.toLowerCase()
   )
-  return techCategory?.skills || []
+  return (techCategory?.skills as Skill[]) || []
 }
 
 // Funciones helper para experiencia

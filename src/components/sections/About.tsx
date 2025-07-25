@@ -1,49 +1,51 @@
 'use client'
 
 import { Code, Database, Globe, Smartphone, GraduationCap, Apple, Zap } from 'lucide-react'
+import { Skill } from '@/types'
+import { COMMON_STRINGS } from '@/constants/strings'
 import AboutHeader from './about/AboutHeader'
 import AboutStory from './about/AboutStory'
 import ExperienceCounter from './about/ExperienceCounter'
 import SkillsGrid from './about/SkillsGrid'
 
 export default function About() {
-  const skills = [
+  const skills: Skill[] = [
     {
       icon: <Globe className="w-8 h-8" />,
-      title: 'Frontend Development',
-      description: 'React, Next.js, TypeScript, Tailwind CSS'
+      title: COMMON_STRINGS.TECHNOLOGIES.FRONTEND,
+      description: 'React, Next.js, TypeScript, Vue.js, Angular, Tailwind CSS'
     },
     {
       icon: <Database className="w-8 h-8" />,
-      title: 'Backend Development',
-      description: 'Node.js, Express, Node.js, PostgreSQL, Firebase, Supabase'
+      title: COMMON_STRINGS.TECHNOLOGIES.BACKEND,
+      description: 'Node.js, Express, Firebase, MySQL, WordPress, Shopify'
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
-      title: 'Android Development',
+      title: COMMON_STRINGS.TECHNOLOGIES.MOBILE_ANDROID,
       description: 'Kotlin, Java, Android Studio, Material Design, Jetpack Compose'
     },
     {
       icon: <Apple className="w-8 h-8" />,
-      title: 'iOS Development',
+      title: COMMON_STRINGS.TECHNOLOGIES.MOBILE_IOS,
       description: 'Swift, SwiftUI, Xcode',
       learning: true
     },
     {
       icon: <Code className="w-8 h-8" />,
-      title: 'DevOps & Tools',
-      description: 'Git, Vercel'
+      title: COMMON_STRINGS.TECHNOLOGIES.DEVOPS,
+      description: 'Git, GitHub, VS Code, Azure DevOps'
     },
     {
       icon: <GraduationCap className="w-8 h-8" />,
-      title: 'Investigación',
-      description: 'TFG Aprobado - App Android con IA',
+      title: COMMON_STRINGS.TECHNOLOGIES.ACADEMIC,
+      description: 'Grado completado con TFG aprobado',
       learning: false
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: 'Automatización',
-      description: 'Make, n8n, Workflows',
+      title: COMMON_STRINGS.TECHNOLOGIES.AUTOMATION,
+      description: 'Make.io, Arduino, Automatización IA',
       learning: true
     }
   ]
@@ -52,8 +54,8 @@ export default function About() {
     <section id="about" className="py-20" style={{ backgroundColor: 'var(--background)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AboutHeader 
-          title="Sobre mí"
-          description="Soy un desarrollador apasionado por la tecnología y la innovación. Me encanta crear soluciones digitales que resuelvan problemas reales y mejoren la experiencia de los usuarios."
+          title={COMMON_STRINGS.SECTIONS.ABOUT_TITLE}
+          description={COMMON_STRINGS.SECTIONS.ABOUT_DESCRIPTION}
         />
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">

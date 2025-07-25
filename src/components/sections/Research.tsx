@@ -1,43 +1,45 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Brain, Smartphone, Database, MessageCircle, BarChart3, CheckCircle2 } from 'lucide-react'
+import { Code, Smartphone, Database, Lightbulb, Rocket } from 'lucide-react'
+
+interface DevelopmentArea {
+  icon: React.ReactNode
+  title: string
+  description: string
+  technologies: string[]
+}
+
+const ANIMATION_DURATION = 0.6
+const STAGGER_DELAY = 0.1
 
 export default function Research() {
-  const researchHighlights = [
+  
+  const developmentAreas: DevelopmentArea[] = [
     {
       icon: <Smartphone className="w-8 h-8" />,
-      title: 'Aplicación Android Nativa',
-      description: 'Desarrollada con Jetpack Compose y arquitectura MVVM para una experiencia fluida',
-      technologies: ['Jetpack Compose', 'MVVM', 'Android Studio', 'Kotlin']
+      title: 'Desarrollo Móvil',
+      description: 'Creando aplicaciones nativas para Android e iOS con las últimas tecnologías',
+      technologies: ['Jetpack Compose', 'Kotlin', 'Java', 'Android Studio', 'Swift (aprendiendo)']
     },
     {
-      icon: <Brain className="w-8 h-8" />,
-      title: 'Inteligencia Artificial Integrada',
-      description: 'Chatbot entrenado con Dialogflow para asistencia personalizada en ejercicios',
-      technologies: ['Dialogflow', 'NLP', 'Machine Learning']
+      icon: <Code className="w-8 h-8" />,
+      title: 'Desarrollo Web',
+      description: 'Construyendo aplicaciones web modernas y responsivas con frameworks actuales',
+      technologies: ['React', 'Next.js', 'TypeScript', 'Vue.js', 'Angular', 'Tailwind CSS']
     },
     {
       icon: <Database className="w-8 h-8" />,
-      title: 'Backend Completo',
-      description: 'Servidor robusto con Node.js y Express, integrado con Firebase para datos en tiempo real',
-      technologies: ['Node.js', 'Express', 'Firebase', 'REST API']
+      title: 'Backend y APIs',
+      description: 'Desarrollando servidores robustos y APIs escalables para aplicaciones completas',
+      technologies: ['Node.js', 'Express', 'Firebase', 'PostgreSQL']
     },
     {
-      icon: <BarChart3 className="w-8 h-8" />,
-      title: 'Sistema de Seguimiento',
-      description: 'Monitoreo de progreso del usuario con métricas detalladas y visualizaciones',
-      technologies: ['Analytics', 'Progress Tracking', 'Data Visualization', 'User Metrics']
+      icon: <Lightbulb className="w-8 h-8" />,
+      title: 'Tecnologías Emergentes',
+      description: 'Explorando IA, automatización y nuevas herramientas para mantenerse actualizado',
+      technologies: ['Swift', 'Dialogflow', 'Make.io', 'n8n']
     }
-  ]
-
-  const projectFeatures = [
-    'Creación y gestión de rutinas de ejercicio personalizadas',
-    'Chatbot inteligente para resolver dudas sobre ejercicios',
-    'Seguimiento detallado del progreso del usuario',
-    'Interfaz moderna y fluida con Jetpack Compose',
-    'Sincronización en tiempo real con Firebase',
-    'Arquitectura escalable y mantenible con MVVM'
   ]
 
   return (
@@ -46,19 +48,19 @@ export default function Research() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: ANIMATION_DURATION }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-            Trabajo de Fin de Grado
+            Desarrollo Continuo
           </h2>
           <div className="flex items-center justify-center gap-2 mb-4">
-            <CheckCircle2 className="w-6 h-6 text-green-500" />
-            <span className="text-green-500 font-semibold">Proyecto Aprobado y Presentado</span>
+            <Rocket className="w-6 h-6 text-blue-500" />
+            <span className="text-blue-500 font-semibold">Creando proyectos constantemente</span>
           </div>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Aplicación Android con Inteligencia Artificial para asistencia en rutinas de ejercicio y seguimiento de progreso
+            Enfocado en desarrollar proyectos diversos que demuestren mis habilidades técnicas y capacidad de adaptación a nuevas tecnologías
           </p>
         </motion.div>
 
@@ -70,10 +72,10 @@ export default function Research() {
           className="mb-16"
         >
           <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: 'var(--foreground)' }}>
-            Componentes Técnicos Principales
+            Áreas de Desarrollo
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {researchHighlights.map((highlight, index) => (
+            {developmentAreas.map((area, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -84,16 +86,16 @@ export default function Research() {
                 style={{ backgroundColor: 'var(--card)' }}
               >
                 <div className="text-blue-600 dark:text-blue-400 mb-4">
-                  {highlight.icon}
+                  {area.icon}
                 </div>
                 <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-                  {highlight.title}
+                  {area.title}
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                  {highlight.description}
+                  {area.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {highlight.technologies.map((tech, techIndex) => (
+                  {area.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
                       className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full"
@@ -107,30 +109,62 @@ export default function Research() {
           </div>
         </motion.div>
 
+        {/* Sección TFG */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: ANIMATION_DURATION, delay: 0.3 }}
           viewport={{ once: true }}
           className="mb-16"
         >
           <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: 'var(--foreground)' }}>
-            Funcionalidades Principales
+            Proyecto de Investigación - TFG
           </h3>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {projectFeatures.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex items-start gap-3"
-              >
-                <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
-                <span className="text-gray-700 dark:text-gray-300">{feature}</span>
-              </motion.div>
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <div className="p-8 rounded-xl border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20" style={{ backgroundColor: 'var(--card)' }}>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 rounded-lg bg-green-100 dark:bg-green-900">
+                  <Smartphone className="w-6 h-6 text-green-600 dark:text-green-400" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold" style={{ color: 'var(--foreground)' }}>
+                    Aplicación Android con IA para Fitness
+                  </h4>
+                  <p className="text-green-600 dark:text-green-400 font-semibold">Proyecto Presentado y Aprobado</p>
+                </div>
+              </div>
+              
+              <p className="text-gray-700 dark:text-gray-300 mb-6">
+                Desarrollo completo de una aplicación Android que integra inteligencia artificial para asistencia en rutinas de ejercicio, 
+                creación de planes personalizados y seguimiento de progreso del usuario.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>Stack Técnico:</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {['Jetpack Compose', 'MVVM', 'Kotlin', 'Firebase', 'Node.js', 'Express', 'Dialogflow'].map((tech, index) => (
+                      <span 
+                        key={index}
+                        className="text-xs px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div>
+                  <h5 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>Características:</h5>
+                  <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                    <li>• Chatbot inteligente con Dialogflow</li>
+                    <li>• Rutinas personalizadas</li>
+                    <li>• Seguimiento de progreso</li>
+                    <li>• Arquitectura escalable MVVM</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
 
@@ -146,30 +180,30 @@ export default function Research() {
           </h3>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700" style={{ backgroundColor: 'var(--card)' }}>
-              <MessageCircle className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+              <Lightbulb className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
               <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-                Innovación en UX
+                Adaptabilidad
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Integración de IA conversacional para mejorar la experiencia del usuario y reducir fricciones
+                Capacidad de aprender rápidamente nuevas tecnologías y adaptarse a las necesidades específicas del proyecto
               </p>
             </div>
             <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700" style={{ backgroundColor: 'var(--card)' }}>
-              <Smartphone className="w-8 h-8 text-green-600 dark:text-green-400 mx-auto mb-4" />
+              <Code className="w-8 h-8 text-green-600 dark:text-green-400 mx-auto mb-4" />
               <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-                Desarrollo Completo
+                Diversidad Técnica
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Experiencia full-stack desde frontend móvil hasta backend con IA, demostrando versatilidad técnica
+                Experiencia en múltiples plataformas y tecnologías, desde desarrollo web hasta móvil y backend
               </p>
             </div>
             <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700" style={{ backgroundColor: 'var(--card)' }}>
-              <BarChart3 className="w-8 h-8 text-purple-600 dark:text-purple-400 mx-auto mb-4" />
+              <Rocket className="w-8 h-8 text-purple-600 dark:text-purple-400 mx-auto mb-4" />
               <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-                Arquitectura Escalable
+                Crecimiento Continuo
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Uso de patrones modernos como MVVM y tecnologías cloud-native para proyectos empresariales
+                Mentalidad de mejora constante y pasión por mantenerse actualizado con las últimas tendencias tecnológicas
               </p>
             </div>
           </div>

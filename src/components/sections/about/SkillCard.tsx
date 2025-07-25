@@ -1,21 +1,20 @@
 import { motion } from 'framer-motion'
+import { Skill } from '@/types'
 
 interface SkillCardProps {
-  skill: {
-    icon: React.ReactNode
-    title: string
-    description: string
-    learning?: boolean
-  }
+  skill: Skill
   index: number
 }
+
+const ANIMATION_DELAY_MULTIPLIER = 0.1
+const ANIMATION_DURATION = 0.8
 
 export default function SkillCard({ skill, index }: SkillCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
+      transition={{ duration: ANIMATION_DURATION, delay: index * ANIMATION_DELAY_MULTIPLIER }}
       viewport={{ once: true }}
       className="p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 hover:scale-105 relative overflow-hidden"
       style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}

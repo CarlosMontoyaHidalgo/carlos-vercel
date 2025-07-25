@@ -10,13 +10,34 @@
     "location": "España"
   },
   "navigation": [
-    { "name": "Inicio", "href": "#hero" },
-    { "name": "Sobre mí", "href": "#about" },
-    { "name": "Experiencia", "href": "#experience" },
-    { "name": "Investigación", "href": "#research" },
-    { "name": "Tecnologías", "href": "#technologies" },
-    { "name": "Proyectos", "href": "#projects" },
-    { "name": "Contacto", "href": "#contact" }
+    {
+      "name": "Inicio",
+      "href": "#hero"
+    },
+    {
+      "name": "Sobre mí",
+      "href": "#about"
+    },
+    {
+      "name": "Experiencia",
+      "href": "#experience"
+    },
+    {
+      "name": "Desarrollo",
+      "href": "#research"
+    },
+    {
+      "name": "Tecnologías",
+      "href": "#technologies"
+    },
+    {
+      "name": "Proyectos",
+      "href": "#projects"
+    },
+    {
+      "name": "Contacto",
+      "href": "#contact"
+    }
   ],
   "hero": {
     "greeting": "¡Hola! Soy",
@@ -47,8 +68,8 @@
       "🔧 DevOps y despliegue en la nube"
     ],
     "experience": {
-      "years": "3+",
-      "description": "años de experiencia en desarrollo"
+      "years": "Prácticas + TFG",
+      "description": "experiencia práctica en desarrollo"
     },
     "philosophy": "Aunque mi especialización principal es el desarrollo web y móvil, siempre estoy abierto a aprender nuevas tecnologías y habilidades que la empresa necesite. Mi enfoque es adaptarme y crecer profesionalmente según los desafíos que se presenten."
   },
@@ -60,33 +81,120 @@
         "name": "Frontend",
         "icon": "🎨",
         "skills": [
-          { "name": "React", "icon": "⚛️" },
-          { "name": "Next.js", "icon": "▲" },
-          { "name": "TypeScript", "icon": "🔷" },
-          { "name": "Tailwind CSS", "icon": "🎨" },
-          { "name": "JavaScript", "icon": "📜" }
+          {
+            "name": "React",
+            "icon": "⚛️",
+            "level": ""
+          },
+          {
+            "name": "Next.js",
+            "icon": "▲",
+            "level": ""
+          },
+          {
+            "name": "TypeScript",
+            "icon": "🔷",
+            "level": ""
+          },
+          {
+            "name": "Tailwind CSS",
+            "icon": "🎨",
+            "level": ""
+          },
+          {
+            "name": "JavaScript",
+            "icon": "📜",
+            "level": ""
+          }
         ]
       },
       {
         "name": "Backend",
         "icon": "⚙️",
         "skills": [
-          { "name": "Node.js", "icon": "🟢" },
-          { "name": "Python", "icon": "🐍" },
-          { "name": "PostgreSQL", "icon": "🐘" },
-          { "name": "MongoDB", "icon": "🍃" },
-          { "name": "Express.js", "icon": "🚀" }
+          {
+            "name": "Node.js",
+            "icon": "🟢",
+            "level": ""
+          },
+          {
+            "name": "PostgreSQL",
+            "icon": "🐘",
+            "level": ""
+          },
+          {
+            "name": "Express.js",
+            "icon": "🚀",
+            "level": ""
+          },
+          {
+            "name": "Firebase",
+            "icon": "🔥",
+            "level": ""
+          }
         ]
       },
       {
         "name": "DevOps & Tools",
         "icon": "🔧",
         "skills": [
-          { "name": "Git", "icon": "📝" },
-          { "name": "Docker", "icon": "🐳" },
-          { "name": "AWS", "icon": "☁️" },
-          { "name": "Vercel", "icon": "▲" },
-          { "name": "VS Code", "icon": "💙" }
+          {
+            "name": "Git",
+            "icon": "📝",
+            "level": ""
+          },
+          {
+            "name": "Vercel",
+            "icon": "▲",
+            "level": ""
+          },
+          {
+            "name": "VS Code",
+            "icon": "💙",
+            "level": ""
+          }
+        ]
+      },
+      {
+        "name": "Móvil",
+        "icon": "📱",
+        "skills": [
+          {
+            "name": "Kotlin",
+            "icon": "🟠",
+            "level": ""
+          },
+          {
+            "name": "Jetpack Compose",
+            "icon": "🎯",
+            "level": ""
+          },
+          {
+            "name": "Swift",
+            "icon": "🍎",
+            "level": "learning"
+          }
+        ]
+      },
+      {
+        "name": "Automatización",
+        "icon": "🤖",
+        "skills": [
+          {
+            "name": "Dialogflow",
+            "icon": "🗣️",
+            "level": ""
+          },
+          {
+            "name": "Make.io",
+            "icon": "🔄",
+            "level": "learning"
+          },
+          {
+            "name": "n8n",
+            "icon": "🔗",
+            "level": "learning"
+          }
         ]
       }
     ]
@@ -97,42 +205,32 @@
     "items": [
       {
         "id": 1,
-        "title": "E-commerce Moderno",
-        "description": "Plataforma de comercio electrónico completa con carrito de compras, pagos integrados y panel de administración.",
-        "image": "/images/proyecto1.jpg",
-        "technologies": ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-        "github": "https://github.com/CarlosMontoyaHidalgo/ecommerce",
-        "demo": "https://ecommerce-demo.vercel.app",
-        "featured": true
-      },
-      {
-        "id": 2,
-        "title": "Dashboard Analytics",
-        "description": "Dashboard interactivo para análisis de datos con gráficos en tiempo real y métricas personalizables.",
-        "image": "/images/proyecto2.jpg",
-        "technologies": ["React", "D3.js", "Node.js", "MongoDB"],
-        "github": "https://github.com/CarlosMontoyaHidalgo/dashboard",
-        "demo": "https://dashboard-demo.vercel.app",
-        "featured": true
-      },
-      {
-        "id": 3,
-        "title": "App Móvil React Native",
-        "description": "Aplicación móvil multiplataforma para gestión de tareas con sincronización en la nube.",
-        "image": "/images/proyecto3.jpg",
-        "technologies": ["React Native", "Firebase", "TypeScript"],
-        "github": "https://github.com/CarlosMontoyaHidalgo/mobile-app",
-        "demo": null,
+        "title": "Pokédex Kanto",
+        "description": "Una aplicación web interactiva que muestra información detallada de los Pokémon de la primera generación.",
+        "image": "/placeholder-pokedex.jpg",
+        "technologies": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "API REST"
+        ],
+        "github": "https://github.com/CarlosMontoyaHidalgo/pokedex",
+        "demo": "https://your-pokedex-demo.vercel.app",
         "featured": false
       },
       {
-        "id": 4,
-        "title": "API REST Completa",
-        "description": "API RESTful robusta con autenticación JWT, documentación Swagger y testing automatizado.",
-        "image": "/images/proyecto4.jpg",
-        "technologies": ["Node.js", "Express", "JWT", "Swagger"],
-        "github": "https://github.com/CarlosMontoyaHidalgo/api-rest",
-        "demo": "https://api-demo.herokuapp.com/docs",
+        "id": 2,
+        "title": "Portfolio Personal",
+        "description": "Mi sitio web personal desarrollado con las últimas tecnologías web modernas.",
+        "image": "/placeholder-portfolio.jpg",
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Framer Motion"
+        ],
+        "github": "https://github.com/CarlosMontoyaHidalgo/portfolio",
+        "demo": "https://carlos-portfolio.vercel.app",
         "featured": false
       }
     ]

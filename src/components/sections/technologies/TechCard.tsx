@@ -1,9 +1,8 @@
-import { motion } from 'framer-motion'
-
 interface Technology {
   name: string
   category: string
   icon: string
+  level: '' | 'learning'
   description: string
 }
 
@@ -13,15 +12,32 @@ interface TechCardProps {
 }
 
 export default function TechCard({ tech, index }: TechCardProps) {
+  const getLevelTag = (level: '' | 'learning') => {
+    if (level === 'learning') {
+      return {
+        text: 'Aprendiendo',
+        bgColor: 'bg-amber-500',
+        textColor: 'text-white'
+      }
+    } else {
+      return null // Sin etiqueta
+    }
+  }
+
+  const levelTag = getLevelTag(tech.level)
+
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="group p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 hover:scale-105"
+    <div
+      className="group p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 hover:scale-105 relative w-full h-full"
       style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}
     >
+      {/* Tag en la esquina superior derecha - solo si hay levelTag */}
+      {levelTag && (
+        <div className={`absolute -top-2 -right-2 px-2 py-1 text-xs font-semibold rounded-full ${levelTag.bgColor} ${levelTag.textColor}`}>
+          {levelTag.text}
+        </div>
+      )}
+      
       <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
         {tech.icon}
       </div>
@@ -37,6 +53,6 @@ export default function TechCard({ tech, index }: TechCardProps) {
       <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
         {tech.description}
       </p>
-    </motion.div>
+    </div>
   )
 }

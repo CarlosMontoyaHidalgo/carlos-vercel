@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { NavigationProvider } from "@/providers/NavigationProvider";
+import AdminFloatingButton from "@/components/AdminFloatingButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,6 +47,7 @@ export default function RootLayout({
         <ThemeProvider>
           <NavigationProvider>
             {children}
+            <AdminFloatingButton />
           </NavigationProvider>
         </ThemeProvider>
       </body>

@@ -6,6 +6,7 @@ import ThemeToggle, { MobileThemeToggle } from './ui/ThemeToggle'
 import NavigationSettings from './NavigationSettings'
 import { useNavigation as useNavigationContext } from './NavigationProvider'
 import { useNavigation as useNavigationData, usePersonalInfo } from '@/hooks/usePortfolioData'
+import { scrollToSection } from '@/utils/functions'
 import Sidebar from './Sidebar'
 
 export default function Navigation() {
@@ -24,9 +25,8 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    element?.scrollIntoView({ behavior: 'smooth' })
+  const handleScrollToSection = (href: string) => {
+    scrollToSection(href)
     setIsOpen(false)
   }
 
@@ -83,7 +83,7 @@ export default function Navigation() {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleScrollToSection(item.href)}
                 className="text-gray-700 hover:text-blue-600 transition-all duration-200 font-medium cursor-pointer px-3 py-2 rounded-lg"
                 style={{ 
                   color: '#ffffff',
@@ -138,7 +138,7 @@ export default function Navigation() {
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleScrollToSection(item.href)}
                   className="text-left font-medium py-3 px-3 transition-all duration-200 cursor-pointer rounded-lg"
                   style={{ 
                     color: '#ffffff',

@@ -1,7 +1,7 @@
 {
   "experience": {
-    "title": "Experiencia Laboral",
-    "subtitle": "Mi trayectoria profesional",
+    "title": "Experiencia y Prácticas",
+    "subtitle": "Mi trayectoria formativa y profesional",
     "items": [
       {
         "id": 1,
@@ -14,32 +14,39 @@
         "duration": "3 meses",
         "description": "Desarrollo y mantenimiento de la aplicación web Velvet utilizando React, Next.js y SCSS.",
         "achievements": [
-            "Implementé nuevas funcionalidades que mejoraron la experiencia del usuario",
-            "Colaboré en la optimización del rendimiento de la aplicación",
-            "Participé en el diseño y desarrollo de componentes reutilizables",
-            "Trabajo en equipo con diseñadores y desarrolladores"
+          "Implementé nuevas funcionalidades que mejoraron la experiencia del usuario",
+          "Colaboré en la optimización del rendimiento de la aplicación",
+          "Participé en el diseño y desarrollo de componentes reutilizables",
+          "Trabajo en equipo con diseñadores y desarrolladores"
         ],
-        "technologies": ["React", "TypeScript", "Next.js", "SCSS"],
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Next.js",
+          "SCSS"
+        ],
         "featured": true
       },
       {
-  "id": 2,
-  "position": "Desarrollador Web y E-commerce Freelance",
-  "company": "Trabajo Autónomo/Proyectos Freelance",
-  "location": "Online",
-  "type": "Freelance",
-  "startDate": "2024-12",
-  "endDate": "2025-02",
-  "duration": "3 meses",
-  "description": "Desarrollo de soluciones de e-commerce personalizadas para clientes independientes y pequeños negocios.",
-  "achievements": [
-    "Creación de tiendas online personalizadas con Shopify",
-    "Entrega de proyectos llave en mano listos para su uso inmediato",
-    "Desarrollo y venta de plantillas y soluciones pre-configuradas para emprendedores"
-  ],
-  "technologies": ["Shopify"],
-  "featured": false
-}
+        "id": 2,
+        "position": "Desarrollador Web y E-commerce Freelance",
+        "company": "Trabajo Autónomo/Proyectos Freelance",
+        "location": "Online",
+        "type": "Freelance",
+        "startDate": "2024-12",
+        "endDate": "2025-02",
+        "duration": "3 meses",
+        "description": "Desarrollo de soluciones de e-commerce personalizadas para clientes independientes y pequeños negocios.",
+        "achievements": [
+          "Creación de tiendas online personalizadas con Shopify",
+          "Entrega de proyectos llave en mano listos para su uso inmediato",
+          "Desarrollo y venta de plantillas y soluciones pre-configuradas para emprendedores"
+        ],
+        "technologies": [
+          "Shopify"
+        ],
+        "featured": false
+      }
     ]
   },
   "education": {
@@ -77,7 +84,12 @@
           "Optimización y performance",
           "Server Components"
         ],
-        "skills": ["React", "Next.js", "TypeScript", "JavaScript"],
+        "skills": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "JavaScript"
+        ],
         "featured": false
       },
       {
@@ -96,7 +108,13 @@
           "Retrofit y APIs",
           "Material Design"
         ],
-        "skills": ["Kotlin", "Android", "Jetpack Compose", "Room", "Retrofit"],
+        "skills": [
+          "Kotlin",
+          "Android",
+          "Jetpack Compose",
+          "Room",
+          "Retrofit"
+        ],
         "featured": false
       }
     ]

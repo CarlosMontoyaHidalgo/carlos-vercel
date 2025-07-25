@@ -1,12 +1,6 @@
 import { motion } from 'framer-motion'
+import { Skill, FADE_IN_UP } from '@/types'
 import SkillCard from './SkillCard'
-
-interface Skill {
-  icon: React.ReactNode
-  title: string
-  description: string
-  learning?: boolean
-}
 
 interface SkillsGridProps {
   skills: Skill[]
