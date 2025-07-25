@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react'
 import ThemeToggle, { MobileThemeToggle } from '@/components/ui/ThemeToggle'
 import LanguageToggle from '@/components/ui/LanguageToggle'
 import NavigationSettings from '@/components/ui/NavigationSettings'
+import SmartChatbot from '@/components/features/SmartChatbot'
 import { useNavigation } from '@/providers/NavigationProvider'
 import { useNavigationItems } from '@/hooks/useNavigationItems'
 import Sidebar from './Sidebar'
@@ -90,6 +91,7 @@ export default function Navigation() {
               </button>
             ))}
             <div className="flex items-center space-x-2 lg:space-x-3">
+              <SmartChatbot />
               <LanguageToggle />
               <ThemeToggle />
               <NavigationSettings />
@@ -98,6 +100,7 @@ export default function Navigation() {
 
           {/* Mobile menu button and theme toggle */}
           <div className="md:hidden flex items-center space-x-2 sm:space-x-3">
+            <SmartChatbot />
             <LanguageToggle />
             <MobileThemeToggle />
             <NavigationSettings />

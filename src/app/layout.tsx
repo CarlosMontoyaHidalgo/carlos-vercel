@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import { NavigationProvider } from "@/providers/NavigationProvider";
 import { LanguageProvider } from "@/providers/LanguageProvider";
 import AdminFloatingButton from "@/components/AdminFloatingButton";
+import SmartChatbot from "@/components/features/SmartChatbot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
