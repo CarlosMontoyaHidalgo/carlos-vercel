@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Plus, Trash2, Save, X, Edit2 } from 'lucide-react'
+import Link from 'next/link'
 
 interface ContentSection {
   id: string
@@ -1293,7 +1294,7 @@ export default function AdminPage() {
                 💡 Instrucciones Básicas
               </h3>
               <ul className="text-blue-800 dark:text-blue-200 space-y-1 text-sm">
-                <li>• Haz clic en "Editar" para modificar cualquier sección</li>
+                <li>• Haz clic en &quot;Editar&quot; para modificar cualquier sección</li>
                 <li>• Los cambios se aplican inmediatamente al guardar</li>
                 <li>• Usa el Gestor de Experiencias para añadir/editar/eliminar experiencias</li>
                 <li>• Usa el Gestor de Proyectos para administrar tu portafolio</li>
@@ -1308,8 +1309,8 @@ export default function AdminPage() {
               <ul className="text-purple-800 dark:text-purple-200 space-y-1 text-sm">
                 <li>• Usa "Nuevo Proyecto" para añadir trabajos o demos</li>
                 <li>• Edita títulos, descripciones, tecnologías y enlaces</li>
-                <li>• Marca proyectos como "Destacados" para resaltarlos</li>
-                <li>• Elimina proyectos obsoletos con el botón "Borrar"</li>
+                <li>• Marca proyectos como &quot;Destacados&quot; para resaltarlos</li>
+                <li>• Elimina proyectos obsoletos con el botón &quot;Borrar&quot;</li>
                 <li>• Los proyectos aparecerán automáticamente en la sección Proyectos</li>
               </ul>
             </div>
@@ -1320,21 +1321,21 @@ export default function AdminPage() {
               </h3>
               <ul className="text-green-800 dark:text-green-200 space-y-1 text-sm">
                 <li>• Usa "Nueva Experiencia" para añadir trabajos o prácticas</li>
-                <li>• Edita cualquier experiencia existente con el botón "Editar"</li>
+                <li>• Edita cualquier experiencia existente con el botón &quot;Editar&quot;</li>
                 <li>• Elimina experiencias no deseadas con el icono de papelera</li>
-                <li>• No olvides hacer clic en "Guardar Cambios" para aplicar los cambios</li>
+                <li>• No olvides hacer clic en &quot;Guardar Cambios&quot; para aplicar los cambios</li>
                 <li>• Las experiencias aparecerán automáticamente en Research y Experience</li>
               </ul>
             </div>
           </motion.div>
 
           <div className="mt-8 text-center">
-            <a
+            <Link
               href="/"
               className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
             >
               ← Volver al Portfolio
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>
