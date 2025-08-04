@@ -13,7 +13,7 @@ export default function ThemeToggle() {
   ] as const
 
   return (
-    <div className="flex items-center space-x-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+    <div className="flex items-center justify-center space-x-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
       {themes.map(({ value, icon: Icon, label }) => (
         <button
           key={value}
@@ -45,7 +45,7 @@ export function MobileThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors flex items-center justify-center"
       title={`Cambiar a tema ${resolvedTheme === 'dark' ? 'claro' : 'oscuro'}`}
     >
       {resolvedTheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}

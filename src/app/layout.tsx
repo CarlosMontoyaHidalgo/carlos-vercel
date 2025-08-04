@@ -7,8 +7,10 @@ import { LanguageProvider } from "@/providers/LanguageProvider";
 import AdminFloatingButton from "@/components/AdminFloatingButton";
 import SmartChatbot from "@/components/features/SmartChatbot";
 import SecretAdminAccess from "@/components/ui/SecretAdminAccess";
+import StructuredData from "@/components/SEO/StructuredData";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { getLocalizedMetadata } from "@/lib/seo-localized";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,30 +22,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Carlos Montoya - Desarrollador Full Stack",
-  description: "Portfolio personal de Carlos Montoya Hidalgo, desarrollador full stack especializado en React, Next.js, TypeScript y tecnologías web modernas.",
-  keywords: "desarrollador, full stack, React, Next.js, TypeScript, portfolio",
-  authors: [{ name: "Carlos Montoya Hidalgo" }],
-  creator: "Carlos Montoya Hidalgo",
-  openGraph: {
-    type: "website",
-    title: "Carlos Montoya - Desarrollador Full Stack",
-    description: "Portfolio personal de Carlos Montoya Hidalgo",
-    siteName: "Carlos Montoya Portfolio",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Carlos Montoya - Desarrollador Full Stack",
-    description: "Portfolio personal de Carlos Montoya Hidalgo",
-  },
-};
+// Exportar metadata optimizada (español por defecto)
+export const metadata: Metadata = getLocalizedMetadata('es');
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) { {
   return (
     <html lang="es" suppressHydrationWarning>
       <body
@@ -54,10 +40,16 @@ export default function RootLayout({
             <NavigationProvider>
               {children}
               <AdminFloatingButton />
+              <SmartChatbot />
               <SecretAdminAccess />
             </NavigationProvider>
           </LanguageProvider>
         </ThemeProvider>
+        
+        {/* SEO: Structured Data para motores de búsqueda */}
+        <StructuredData />
+        
+        {/* Analytics */}
         <Analytics />
         <SpeedInsights />
       </body>

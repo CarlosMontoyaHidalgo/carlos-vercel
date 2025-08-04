@@ -105,19 +105,19 @@ export default function Navigation() {
                 {item.name}
               </button>
             ))}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center justify-center space-x-3">
               <ThemeToggle />
               <NavigationSettings />
             </div>
           </div>
 
           {/* Mobile menu button and theme toggle */}
-          <div className="md:hidden flex items-center space-x-3">
+          <div className="md:hidden flex items-center justify-center space-x-3">
             <MobileThemeToggle />
             <NavigationSettings />
                         <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 transition-colors duration-200 cursor-pointer"
+              className="p-2 transition-colors duration-200 cursor-pointer flex items-center justify-center"
               style={{ color: '#ffffff' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = '#1e40af'

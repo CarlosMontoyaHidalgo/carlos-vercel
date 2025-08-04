@@ -87,7 +87,7 @@ export default function NavigationSettings() {
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 rounded-lg transition-all duration-200 hover:scale-110"
+        className="p-2 rounded-lg transition-all duration-200 hover:scale-110 flex items-center justify-center"
         style={{ 
           color: 'var(--foreground)',
           backgroundColor: 'var(--muted)',

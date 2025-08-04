@@ -61,7 +61,7 @@ export default function SmartChatbot() {
       {/* Compact Chat Button for Header */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="relative bg-gray-800 text-white p-2 lg:p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group border-2 border-white overflow-hidden"
+        className="relative bg-gray-800 text-white p-2 lg:p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group border-2 border-white overflow-hidden flex items-center justify-center"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         title="Chat con Carlos AI"
