@@ -23,21 +23,9 @@ const CONFIDENCE_COLORS = {
 export default function SmartChatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
-  const [isMobile, setIsMobile] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const { messages, isLoading, error, sendMessage, clearChat } = useChat()
   const { t } = useLanguage()
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 640)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -92,7 +80,7 @@ export default function SmartChatbot() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center sm:items-end sm:justify-end p-4"
+            className="fixed inset-0 z-50 flex items-end justify-center sm:items-end sm:justify-end p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -106,9 +94,9 @@ export default function SmartChatbot() {
             {/* Chat Container */}
             <motion.div
               className="relative bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md h-[650px] max-h-[85vh] flex flex-col border dark:border-gray-700 overflow-hidden"
-              initial={{ opacity: 0, y: isMobile ? 0 : 100, scale: 0.9 }}
+              initial={{ opacity: 0, y: 100, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: isMobile ? 0 : 100, scale: 0.9 }}
+              exit={{ opacity: 0, y: 100, scale: 0.9 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               {/* Header */}
