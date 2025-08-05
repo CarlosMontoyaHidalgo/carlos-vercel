@@ -141,6 +141,11 @@
             "name": "Firebase",
             "icon": "🔥",
             "level": ""
+          },
+          {
+            "name": "Supabase",
+            "icon": "⚡",
+            "level": ""
           }
         ]
       },

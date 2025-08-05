@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code, Smartphone, Database, Lightbulb, Rocket } from 'lucide-react'
+import { Code, Smartphone, Database, Lightbulb, Rocket, Apple } from 'lucide-react'
 import { useLanguage } from '@/providers/LanguageProvider'
 
 interface DevelopmentArea {
@@ -20,9 +20,15 @@ export default function Research() {
   const developmentAreas: DevelopmentArea[] = [
     {
       icon: <Smartphone className="w-8 h-8" />,
-      title: t('research.mobileTitle'),
-      description: t('research.mobileDescription'),
-      technologies: ['Jetpack Compose', 'Kotlin', 'Java', 'Android Studio', `Swift (${t('research.learning')})`]
+      title: 'Desarrollo Android',
+      description: 'Creando aplicaciones nativas para Android con las últimas tecnologías',
+      technologies: ['Jetpack Compose', 'Kotlin', 'Java', 'Android Studio', 'Material Design']
+    },
+    {
+      icon: <Apple className="w-8 h-8" />,
+      title: 'Desarrollo iOS',
+      description: 'Aprendiendo desarrollo nativo para iOS',
+      technologies: ['Swift', 'SwiftUI', 'Xcode']
     },
     {
       icon: <Code className="w-8 h-8" />,

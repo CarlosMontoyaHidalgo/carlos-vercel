@@ -20,16 +20,16 @@ export default function About() {
     {
       icon: <Database className="w-8 h-8" />,
       title: t('technologies.backendDev'),
-      description: 'Node.js, Express, Firebase, MySQL, WordPress, Shopify'
+      description: 'Node.js, Express, Firebase, MySQL, Supabase, Spring Boot (aprendiendo)'
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
-      title: t('technologies.mobileDev'),
+      title: 'Desarrollo Android',
       description: 'Kotlin, Java, Android Studio, Material Design, Jetpack Compose'
     },
     {
       icon: <Apple className="w-8 h-8" />,
-      title: t('technologies.mobileDev'),
+      title: 'Desarrollo iOS',
       description: 'Swift, SwiftUI, Xcode',
       learning: true
     },
