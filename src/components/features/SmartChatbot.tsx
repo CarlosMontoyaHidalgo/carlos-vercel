@@ -8,9 +8,8 @@ import { useLanguage } from '@/providers/LanguageProvider'
 
 const SUGGESTED_QUESTIONS = [
   "¿Qué tecnologías dominas?",
-  "Cuéntame sobre tu experiencia en 2Coders",
+  "Cuéntame sobre tu experiencia",
   "¿Qué proyectos has desarrollado?",
-  "Háblame sobre tu TFG",
   "¿Cómo puedo contactarte?"
 ]
 
@@ -26,6 +25,20 @@ export default function SmartChatbot() {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const { messages, isLoading, error, sendMessage, clearChat } = useChat()
   const { t } = useLanguage()
+
+  // Solo mostrar en desktop (pantallas >= 768px)
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768)
+    }
+    
+    checkDesktop()
+    window.addEventListener('resize', checkDesktop)
+    
+    return () => window.removeEventListener('resize', checkDesktop)
+  }, [])
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -58,47 +71,48 @@ export default function SmartChatbot() {
 
   return (
     <>
-      {/* Compact Chat Button for Header */}
-      <motion.button
-        onClick={() => setIsOpen(true)}
-        className="relative bg-gray-800 text-white p-2 lg:p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group border-2 border-white overflow-hidden flex items-center justify-center"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        title="Chat con Carlos AI"
-      >
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        <Bot size={16} className="lg:hidden relative z-10" />
-        <Bot size={20} className="hidden lg:block relative z-10" />
-        
-        {/* Pulse effect */}
-        <div className="absolute inset-0 rounded-full bg-blue-400 opacity-20 animate-ping" />
-      </motion.button>
-
-      {/* Chat Modal */}
+      {/* Solo mostrar en desktop */}
+      {isDesktop && (
+        <>
+          {/* Compact Chat Button for Header */}
+          <motion.button
+            onClick={() => setIsOpen(true)}
+            className="relative bg-gray-800 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group border-2 border-white overflow-hidden flex items-center justify-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            title="Chat con Carlos AI"
+          >
+            {/* Animated background */}
+            <div className="absolute inset-0 bg-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            
+            <Bot size={20} className="relative z-10" />
+            
+            {/* Pulse effect */}
+            <div className="absolute inset-0 rounded-full bg-blue-400 opacity-20 animate-ping" />
+          </motion.button>      {/* Chat Modal */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-[9999] flex items-center justify-center sm:items-end sm:justify-end p-4"
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             {/* Backdrop */}
             <div 
-              className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/50"
               onClick={() => setIsOpen(false)}
             />
             
             {/* Chat Container */}
             <motion.div
-              className="relative bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md h-[500px] sm:h-[650px] max-h-[80vh] sm:max-h-[85vh] flex flex-col border dark:border-gray-700 overflow-hidden mx-4 sm:mx-0"
+              className="relative bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md h-[600px] max-h-[80vh] flex flex-col border border-gray-300 dark:border-gray-700 overflow-hidden"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
+              
               {/* Header */}
               <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
                 <div className="flex items-center gap-3">
@@ -134,6 +148,7 @@ export default function SmartChatbot() {
                     className="p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors rounded-full"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    title="Cerrar chat"
                   >
                     <X size={18} />
                   </motion.button>
@@ -275,6 +290,8 @@ export default function SmartChatbot() {
           </motion.div>
         )}
       </AnimatePresence>
+        </>
+      )}
     </>
   )
 }

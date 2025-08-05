@@ -39,11 +39,13 @@
         "description": "Development of custom e-commerce solutions for independent clients and small businesses.",
         "achievements": [
           "Creation of custom online stores with Shopify",
-          "Delivery of turnkey projects ready for immediate use",
+          "Theme configuration and functionality customization",
           "Development and sale of templates and pre-configured solutions for entrepreneurs"
         ],
         "technologies": [
-          "Shopify"
+          "Shopify",
+          "Liquid",
+          "HTML/CSS"
         ],
         "featured": false
       }

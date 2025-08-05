@@ -39,11 +39,13 @@
         "description": "Desarrollo de soluciones de e-commerce personalizadas para clientes independientes y pequeños negocios.",
         "achievements": [
           "Creación de tiendas online personalizadas con Shopify",
-          "Entrega de proyectos llave en mano listos para su uso inmediato",
+          "Configuración y personalización de temas y funcionalidades",
           "Desarrollo y venta de plantillas y soluciones pre-configuradas para emprendedores"
         ],
         "technologies": [
-          "Shopify"
+          "Shopify",
+          "Liquid",
+          "HTML/CSS"
         ],
         "featured": false
       }

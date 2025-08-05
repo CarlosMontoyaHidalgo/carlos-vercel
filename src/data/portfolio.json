@@ -123,6 +123,11 @@
             "level": ""
           },
           {
+            "name": "Spring Boot",
+            "icon": "🍃",
+            "level": "learning"
+          },
+          {
             "name": "PostgreSQL",
             "icon": "🐘",
             "level": ""
