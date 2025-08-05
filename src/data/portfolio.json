@@ -50,6 +50,11 @@
         "type": "primary"
       },
       {
+        "text": "Descargar CV",
+        "href": "download-cv",
+        "type": "download"
+      },
+      {
         "text": "Contactar",
         "href": "#contact",
         "type": "secondary"

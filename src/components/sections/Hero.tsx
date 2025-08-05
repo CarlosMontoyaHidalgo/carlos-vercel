@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react'
+import { Github, Linkedin, Mail, ChevronDown, Download } from 'lucide-react'
 import { useHeroData, usePersonalInfo, useContactData } from '@/hooks/usePortfolioData'
 import { useAnimationConfig } from '@/hooks/useConfig'
 import { useLanguage } from '@/providers/LanguageProvider'
@@ -12,9 +12,29 @@ export default function Hero() {
   const personalInfo = usePersonalInfo()
   const contactData = useContactData()
   const animationConfig = useAnimationConfig()
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   
   const typingText = t('hero.typing')
+
+  // Función para manejar la descarga del CV
+  const handleDownloadCV = () => {
+    const cvFile = language === 'es' ? '/cv-carlos-montoya-es.pdf' : '/cv-carlos-montoya-en.pdf'
+    const link = document.createElement('a')
+    link.href = cvFile
+    link.download = `CV-Carlos-Montoya-${language === 'es' ? 'ES' : 'EN'}.pdf`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  // Función para manejar clicks en botones
+  const handleButtonClick = (button: any) => {
+    if (button.href === 'download-cv') {
+      handleDownloadCV()
+    } else {
+      document.querySelector(button.href)?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
   
   useEffect(() => {
     if (!animationConfig.enableHeroTyping) {
@@ -115,16 +135,21 @@ export default function Hero() {
             {heroData.ctaButtons.map((button, index) => (
               <button
                 key={index}
-                onClick={() => document.querySelector(button.href)?.scrollIntoView({ behavior: 'smooth' })}
-                className={`relative px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 z-10 ${
+                onClick={() => handleButtonClick(button)}
+                className={`relative px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 z-10 flex items-center gap-2 justify-center ${
                   button.type === 'primary' 
                     ? 'shadow-lg border' 
+                    : button.href === 'download-cv'
+                    ? 'shadow-lg border-2 bg-gradient-to-r from-blue-600 to-purple-600'
                     : 'glass-effect border-2'
                 }`}
                 style={button.type === 'primary' ? { 
                   backgroundColor: '#000000',
                   color: '#ffffff',
                   borderColor: 'rgba(255, 255, 255, 0.2)'
+                } : button.href === 'download-cv' ? {
+                  color: '#ffffff',
+                  borderColor: 'rgba(255, 255, 255, 0.3)'
                 } : { 
                   color: '#ffffff',
                   borderColor: 'rgba(255, 255, 255, 0.3)'
@@ -132,6 +157,8 @@ export default function Hero() {
                 onMouseEnter={(e) => { 
                   if (button.type === 'primary') {
                     e.currentTarget.style.backgroundColor = '#374151'
+                  } else if (button.href === 'download-cv') {
+                    e.currentTarget.style.backgroundColor = 'rgba(59, 130, 246, 0.8)'
                   } else {
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'
                     e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
@@ -140,14 +167,18 @@ export default function Hero() {
                 onMouseLeave={(e) => { 
                   if (button.type === 'primary') {
                     e.currentTarget.style.backgroundColor = '#000000'
+                  } else if (button.href === 'download-cv') {
+                    e.currentTarget.style.backgroundColor = 'transparent'
                   } else {
                     e.currentTarget.style.backgroundColor = 'transparent'
                     e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'
                   }
                 }}
               >
+                {button.href === 'download-cv' && <Download size={20} />}
                 {button.href === '#projects' ? t('hero.viewProjects') : 
                  button.href === '#contact' ? t('hero.contact') : 
+                 button.href === 'download-cv' ? t('hero.downloadCV') :
                  button.text}
               </button>
             ))}

@@ -6,6 +6,7 @@ import { useLanguage } from '@/providers/LanguageProvider'
 import ContactHeader from './contact/ContactHeader'
 import ContactGrid from './contact/ContactGrid'
 import SocialLinks from './contact/SocialLinks'
+import DownloadCVButton from './contact/DownloadCVButton'
 
 export default function Contact() {
   const portfolioData = usePortfolioData()
@@ -49,6 +50,12 @@ export default function Contact() {
           />
           <div className="max-w-4xl mx-auto">
             <ContactGrid contactInfo={contactInfo} />
+            
+            {/* Botón de descarga del CV */}
+            <div className="mt-12 text-center">
+              <DownloadCVButton />
+            </div>
+            
             <div className="mt-12 text-center">
               <SocialLinks socialLinks={contact.socialLinks.map(link => ({
                 ...link,
