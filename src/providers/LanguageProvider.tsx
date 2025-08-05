@@ -1,6 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { clarityTrack } from '@/components/analytics/MicrosoftClarity'
 
 // Tipos para las traducciones
 export type Language = 'es' | 'en'
@@ -70,6 +71,14 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     }
   }, [])
 
+  // Función para cambiar idioma con tracking
+  const changeLanguage = (lang: Language) => {
+    if (lang !== language) {
+      clarityTrack.portfolio.languageChange(lang)
+    }
+    setLanguage(lang)
+  }
+
   // Guardar idioma en localStorage cuando cambie
   useEffect(() => {
     localStorage.setItem('portfolio-language', language)
@@ -83,7 +92,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   const value: LanguageContextType = {
     language,
-    setLanguage,
+    setLanguage: changeLanguage,
     t,
     translations
   }

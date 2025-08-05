@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail } from 'lucide-react'
+import { clarityTrack } from '@/components/analytics/MicrosoftClarity'
 
 interface SocialLink {
   icon: React.ReactNode
@@ -52,6 +53,7 @@ export default function SocialLinks({ socialLinks }: SocialLinksProps) {
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => clarityTrack.portfolio.contactClick(social.name)}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}

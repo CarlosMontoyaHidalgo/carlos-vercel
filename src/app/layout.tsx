@@ -8,6 +8,7 @@ import AdminFloatingButton from "@/components/AdminFloatingButton";
 import SmartChatbot from "@/components/features/SmartChatbot";
 import SecretAdminAccess from "@/components/ui/SecretAdminAccess";
 import StructuredData from "@/components/SEO/StructuredData";
+import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getLocalizedMetadata } from "@/lib/seo-localized";
@@ -52,6 +53,7 @@ export default function RootLayout({
         {/* Analytics */}
         <Analytics />
         <SpeedInsights />
+        <MicrosoftClarity />
       </body>
     </html>
   );

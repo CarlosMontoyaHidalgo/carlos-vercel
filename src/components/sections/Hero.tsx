@@ -5,6 +5,8 @@ import { Github, Linkedin, Mail, ChevronDown, Download } from 'lucide-react'
 import { useHeroData, usePersonalInfo, useContactData } from '@/hooks/usePortfolioData'
 import { useAnimationConfig } from '@/hooks/useConfig'
 import { useLanguage } from '@/providers/LanguageProvider'
+import { useSectionTracking } from '@/hooks/useSectionTracking'
+import { clarityTrack } from '@/components/analytics/MicrosoftClarity'
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('')
@@ -13,11 +15,13 @@ export default function Hero() {
   const contactData = useContactData()
   const animationConfig = useAnimationConfig()
   const { t, language } = useLanguage()
+  const sectionRef = useSectionTracking('hero')
   
   const typingText = t('hero.typing')
 
   // Función para manejar la descarga del CV
   const handleDownloadCV = () => {
+    clarityTrack.portfolio.cvDownload(language)
     const cvFile = language === 'es' ? '/cv-carlos-montoya-es.pdf' : '/cv-carlos-montoya-en.pdf'
     const link = document.createElement('a')
     link.href = cvFile
@@ -59,7 +63,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 px-4 sm:px-6 lg:px-8">
       {/* Fondo con gradiente animado */}
       <div className="absolute inset-0 gradient-bg"></div>
       

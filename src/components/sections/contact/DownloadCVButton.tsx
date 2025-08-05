@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Download, Eye } from 'lucide-react'
 import { useLanguage } from '@/providers/LanguageProvider'
+import { clarityTrack } from '@/components/analytics/MicrosoftClarity'
 import { useState } from 'react'
 
 export default function DownloadCVButton() {
@@ -10,6 +11,9 @@ export default function DownloadCVButton() {
   const [showOptions, setShowOptions] = useState(false)
 
   const handleDownloadPDF = () => {
+    // Track CV download
+    clarityTrack.portfolio.cvDownload(language)
+    
     const cvFile = language === 'es' ? '/cv-carlos-montoya-es.pdf' : '/cv-carlos-montoya-en.pdf'
     const link = document.createElement('a')
     link.href = cvFile
@@ -20,6 +24,9 @@ export default function DownloadCVButton() {
   }
 
   const handleViewCV = () => {
+    // Track CV view
+    clarityTrack.event('cv_view_online', { language })
+    
     const cvFile = language === 'es' ? '/cv-carlos-montoya-es.html' : '/cv-carlos-montoya-en.html'
     window.open(cvFile, '_blank')
   }
