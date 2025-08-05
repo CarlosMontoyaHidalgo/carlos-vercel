@@ -37,7 +37,7 @@ export default function DownloadCVButton() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
       viewport={{ once: true }}
-      className="relative"
+      className="relative flex flex-col items-center justify-center"
     >
       {!showOptions ? (
         <motion.button
@@ -71,7 +71,7 @@ export default function DownloadCVButton() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="flex flex-col sm:flex-row gap-3"
+          className="flex flex-col sm:flex-row gap-3 items-center justify-center"
         >
           <motion.button
             onClick={handleViewCV}
