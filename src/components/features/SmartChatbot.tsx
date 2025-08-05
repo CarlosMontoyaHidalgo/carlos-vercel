@@ -80,7 +80,7 @@ export default function SmartChatbot() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-[9999] sm:flex sm:items-end sm:justify-end sm:p-4"
+            className="fixed inset-0 z-[9999] flex items-center justify-center sm:items-end sm:justify-end p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -93,17 +93,10 @@ export default function SmartChatbot() {
             
             {/* Chat Container */}
             <motion.div
-              className="absolute left-1/2 transform -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:transform-none bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md h-[500px] sm:h-[650px] max-h-[60vh] sm:max-h-[85vh] flex flex-col border dark:border-gray-700 overflow-hidden mx-4 sm:mx-0"
-              style={{
-                // Fix para iOS Safari - posicionamiento desde abajo
-                bottom: 'max(80px, env(safe-area-inset-bottom, 16px))',
-                // Asegurar que respete el safe area
-                paddingBottom: 'env(safe-area-inset-bottom, 0px)',
-                maxHeight: 'calc(100vh - 120px)', // Reservar espacio para navegación
-              }}
-              initial={{ opacity: 0, y: 100, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 100, scale: 0.9 }}
+              className="relative bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md h-[500px] sm:h-[650px] max-h-[80vh] sm:max-h-[85vh] flex flex-col border dark:border-gray-700 overflow-hidden mx-4 sm:mx-0"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               {/* Header */}
