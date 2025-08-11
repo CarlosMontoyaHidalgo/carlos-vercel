@@ -53,7 +53,7 @@ const knowledgeBase: KnowledgeBase = {
     keywords: ['contacto', 'email', 'disponibilidad', 'trabajo', 'contratar', 'contact', 'hire'],
     responses: [
       'Puedes contactarme en carlosmh561@gmail.com. Estoy buscando trabajo a tiempo completo y respondo en menos de 24 horas. También puedes encontrarme en LinkedIn y GitHub.',
-      'Mi email es carlosmh561@gmail.com. También estoy en LinkedIn (carlos-alberto-montoya-hidalgo) y GitHub (CarlosMontoyaHidalgo). Actualmente busco oportunidades laborales a tiempo completo en España.'
+      'Puedes contactarme en carlosmh561@gmail.com. Estoy disponible para oportunidades laborales remotas o presenciales y respondo en menos de 24 horas. También puedes encontrarme en LinkedIn y GitHub.'
     ],
     followUp: ['¿Te gustaría agendar una llamada?', '¿Hay algún puesto específico que te interese discutir?']
   },
